@@ -1,0 +1,14 @@
+/*@import '~slick-carousel/slick/slick.css';*/
+/*@import '~slick-carousel/slick/slick-theme.css';*/
+
+.slick-track .slick-center {
+    width: 420px;
+    height: 248px;
+}
+
+.slick-track .slick-active {
+    width: 348px;
+    height: 206px;
+
+    opacity: 0.4;
+}

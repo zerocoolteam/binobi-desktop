@@ -1,0 +1,133 @@
+.navigation {
+    height: 120px;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+.navigation .background {
+    left: 0;
+    right: 0;
+    top: 80%;
+    bottom: -60%;
+}
+
+.background .line {
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10em;
+    /* purple dark */
+    background: #463c6a;
+}
+
+.background .subtract {
+    height: 72px;
+    bottom: 28px;
+
+    background: #ffffff;
+    /*box-shadow: 0px -4px 14px rgba(0, 0, 0, 0.06);*/
+}
+
+.subtract nav {
+    height: inherit;
+}
+
+.subtract nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: inherit;
+    margin-bottom: 0;
+
+    padding: 0 50px;
+    /*flex-direction: row;*/
+    /*flex-wrap: wrap;*/
+}
+
+.subtract nav ul > li {
+    /*height: inherit;*/
+    display: inline-block;
+    /*width: 250px;*/
+    /*height: 50px;*/
+
+    width: 38px;
+    /*height: 20px;*/
+    left: 125px;
+    top: 16px;
+
+    font-family: Sarabun;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+
+    color: #613eea;
+}
+
+.subtract nav ul > li a {
+    text-decoration: none;
+}
+
+.subtract nav ul > li span {
+    /*height: 100%;*/
+    width: 50px;
+    text-align: center;
+    display: block;
+}
+
+.line .title {
+    width: 88px;
+    height: 24px;
+    left: 165px;
+    top: 8px;
+
+    font-family: Sarabun;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+
+    color: #ffffff;
+}
+
+.line .profile-photo {
+    width: 24px;
+    height: 24px;
+    left: 1249px;
+    top: 8px;
+}
+
+.profile-photo .avatar {
+    border-radius: 12px;
+    border: 2px solid #ffffff;
+    width: 24px;
+    height: 24px;
+    left: 1249px;
+    top: 8px;
+}
+
+.avatar img {
+    width: 28px;
+    height: 41px;
+    right: 166px;
+    top: 3px;
+}
+
+.profile-photo .notification-present {
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    display: inline-block;
+    right: -15px;
+    top: -31px;
+    width: 40%;
+    height: 40%;
+
+    /* green notification */
+    background-color: #54d3ad;
+
+    position: relative;
+}
