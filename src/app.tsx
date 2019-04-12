@@ -17,38 +17,38 @@ link.integrity = 'sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9Jvo
 link.crossOrigin = 'anonymous';
 document.getElementsByTagName('head')[0].appendChild(link);
 
-// const slick = document.createElement('link');
-// slick.rel = 'stylesheet';
-// slick.href = 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css';
-// slick.type = 'text/css';
-// slick.charset = 'charset';
-// document.getElementsByTagName('head')[0].appendChild(slick);
-//
-// const slickTheme = document.createElement('link');
-// slickTheme.rel = 'stylesheet';
-// slickTheme.href = 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css';
-// slickTheme.type = 'text/css';
-// document.getElementsByTagName('head')[0].appendChild(slickTheme);
+const slick = document.createElement('link');
+slick.rel = 'stylesheet';
+slick.href = 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css';
+slick.type = 'text/css';
+slick.charset = 'charset';
+document.getElementsByTagName('head')[0].appendChild(slick);
+
+const slickTheme = document.createElement('link');
+slickTheme.rel = 'stylesheet';
+slickTheme.href = 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css';
+slickTheme.type = 'text/css';
+document.getElementsByTagName('head')[0].appendChild(slickTheme);
 
 // Render components
 const render = (Component: () => JSX.Element) => {
-    ReactDOM.render(
-        <AppContainer>
-            <Provider store={store}>
-                <Component />
-            </Provider>
-        </AppContainer>,
-        mainElement
-    );
+  ReactDOM.render(
+    <AppContainer>
+      <Provider store={store}>
+        <Component />
+      </Provider>
+    </AppContainer>,
+    mainElement
+  );
 };
 
 render(Application);
 
 // Hot Module Replacement API
 if (typeof module.hot !== 'undefined') {
-    module.hot.accept('./components/Application', () => {
-        import('./components/Application').then(World => {
-            render(World.default);
-        });
+  module.hot.accept('./components/Application', () => {
+    import('./components/Application').then(World => {
+      render(World.default);
     });
+  });
 }

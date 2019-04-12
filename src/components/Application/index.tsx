@@ -1,16 +1,16 @@
 import * as React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import Header from '../Layout/Header';
 import Main from '../Layout/Main';
 
 const Application = () => (
-    <Router>
+    <BrowserRouter>
         <div style={{ background: '#E5E5E5' }}>
             <Header />
             <Main />
         </div>
-    </Router>
+    </BrowserRouter>
 );
 
 export default Application;

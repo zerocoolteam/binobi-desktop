@@ -25,16 +25,18 @@ module.exports = merge.smart(baseConfig, {
             {
                 test: /\.scss$/,
                 loaders: [
-                    'style-loader',
+                    "style-loader",
                     {
                         loader: 'typings-for-css-modules-loader',
                         options: {
                             modules: true,
                             namedExport: true,
-                            camelCase: true
+                            camelCase: true,
+                            sass: true
                         }
                     },
-                    'sass-loader'
+                    "css-loader", // translates CSS into CommonJS
+                    "sass-loader",
                 ]
             },
             {
@@ -115,6 +117,9 @@ module.exports = merge.smart(baseConfig, {
         new HtmlWebpackPlugin(),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
-        })
+        }),
+        new webpack.WatchIgnorePlugin([
+            /css\.d\.ts$/
+        ]),
     ]
 });
