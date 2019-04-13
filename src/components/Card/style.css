@@ -1,0 +1,90 @@
+.card img {
+  width: 57px;
+  height: 57px;
+  left: 28px;
+  top: 8px;
+  position: relative;
+}
+.card .card-number {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12% 28px;
+}
+.card .card-number span {
+  font-family: Sarabun;
+  font-style: normal;
+  color: #ffffff;
+  display: inline-block;
+  line-height: 37px;
+}
+.card .card-number span:not(:last-child) {
+  width: 80px;
+  height: 38px;
+  font-weight: normal;
+  font-size: 28px;
+  letter-spacing: 5px;
+}
+.card .card-number span:last-child {
+  width: 70px;
+  height: 44px;
+  font-weight: normal;
+  font-size: 26px;
+  text-align: right;
+  letter-spacing: 2px;
+}
+.card .card-holder {
+  width: 185px;
+  height: 26px;
+  font-family: Sarabun;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 28px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #ffffff;
+  /* white */
+  opacity: 0.8;
+}
+.card .card-holder-name {
+  width: 190px;
+  height: 34px;
+  font-family: Sarabun;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 23px;
+  line-height: 34px;
+  letter-spacing: 0.1px;
+  color: #ffffff;
+}
+.card .expires {
+  width: 149px;
+  height: 26px;
+  font-family: Sarabun;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 28px;
+  text-align: right;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #ffffff;
+  /* white */
+  opacity: 0.8;
+}
+.card .expired-date {
+  width: 160px;
+  height: 34px;
+  font-family: Sarabun;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 23px;
+  line-height: 34px;
+  text-align: right;
+  letter-spacing: 0.1px;
+  color: #ffffff;
+}
+
+/*# sourceMappingURL=style.css.map */

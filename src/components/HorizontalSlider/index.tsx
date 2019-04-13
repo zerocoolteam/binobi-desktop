@@ -11,12 +11,12 @@ type TemplateState = Readonly<{
 }>;
 
 const cardsList: CardList = [
-  { count: 100, id: 1, classes: styles.background, active: true },
-  { count: 200, id: 2, classes: styles.background, active: false },
-  { count: 300, id: 3, classes: styles.background, active: false },
-  { count: 400, id: 4, classes: styles.background, active: false },
-  { count: 500, id: 5, classes: styles.background, active: false },
-  { count: 600, id: 6, classes: styles.background, active: false }
+  { number: 1000, id: 1, classes: styles.background, active: true },
+  { number: 2000, id: 2, classes: styles.background, active: false },
+  { number: 3000, id: 3, classes: styles.background, active: false },
+  { number: 4000, id: 4, classes: styles.background, active: false },
+  { number: 5000, id: 5, classes: styles.background, active: false },
+  { number: 6000, id: 6, classes: styles.background, active: false }
 ];
 
 const initialState: TemplateState = {
