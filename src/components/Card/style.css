@@ -9,6 +9,11 @@
   border-radius: 6px;
 }
 
+.card div {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
 .background.card.card-active {
   width: 420px;
   height: 248px;
@@ -26,23 +31,23 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12% 28px;
+  padding: 33px 13px;
 }
-.background.card.card-active .card-number span {
+.background.card.card-active .card-number div {
   font-family: Sarabun;
   font-style: normal;
   color: #ffffff;
   display: inline-block;
   line-height: 37px;
 }
-.background.card.card-active .card-number span:not(:last-child) {
+.background.card.card-active .card-number div:not(:last-child) {
   width: 80px;
   height: 38px;
   font-weight: normal;
   font-size: 28px;
   letter-spacing: 5px;
 }
-.background.card.card-active .card-number span:last-child {
+.background.card.card-active .card-number div:last-child {
   width: 70px;
   height: 44px;
   font-weight: normal;
@@ -53,6 +58,7 @@
 .background.card.card-active .card-holder {
   width: 185px;
   height: 26px;
+  padding-left: 28px;
   font-family: Sarabun;
   font-style: normal;
   font-weight: 300;
@@ -67,6 +73,7 @@
 .background.card.card-active .card-holder-name {
   width: 190px;
   height: 34px;
+  padding-left: 28px;
   font-family: Sarabun;
   font-style: normal;
   font-weight: 500;
@@ -78,6 +85,7 @@
 .background.card.card-active .expires {
   width: 149px;
   height: 26px;
+  padding-right: 28px;
   font-family: Sarabun;
   font-style: normal;
   font-weight: 300;
@@ -93,6 +101,7 @@
 .background.card.card-active .expired-date {
   width: 160px;
   height: 34px;
+  padding-right: 28px;
   font-family: Sarabun;
   font-style: normal;
   font-weight: 500;
@@ -120,23 +129,23 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12% 28px;
+  padding: 30px 8px 27px;
 }
-.background.card.card-second .card-number span {
+.background.card.card-second .card-number div {
   font-family: Sarabun;
   font-style: normal;
   color: #ffffff;
   display: inline-block;
   line-height: 32px;
 }
-.background.card.card-second .card-number span:not(:last-child) {
+.background.card.card-second .card-number div:not(:last-child) {
   width: 66px;
   height: 32px;
   font-weight: normal;
   font-size: 23px;
   letter-spacing: 4px;
 }
-.background.card.card-second .card-number span:last-child {
+.background.card.card-second .card-number div:last-child {
   width: 66px;
   height: 32px;
   font-weight: normal;
@@ -148,6 +157,7 @@
 .background.card.card-second .card-holder {
   width: 154px;
   height: 20px;
+  padding-left: 23px;
   font-family: Sarabun;
   font-style: normal;
   font-weight: 300;
@@ -162,6 +172,7 @@
 .background.card.card-second .card-holder-name {
   width: 160px;
   height: 29px;
+  padding-left: 23px;
   font-family: Sarabun;
   font-style: normal;
   font-weight: 500;
@@ -173,6 +184,7 @@
 .background.card.card-second .expires {
   width: 87px;
   height: 20px;
+  padding-right: 23px;
   font-family: Sarabun;
   font-style: normal;
   font-weight: 300;
@@ -188,6 +200,7 @@
 .background.card.card-second .expired-date {
   width: 160px;
   height: 29px;
+  padding-right: 23px;
   font-family: Sarabun;
   font-style: normal;
   font-weight: 500;

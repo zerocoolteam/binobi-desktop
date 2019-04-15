@@ -26,6 +26,13 @@
 //  opacity: 0.4;
 //}
 
+.card {
+  div {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
 .background.card.card-active {
   width: 420px;
   height: 248px;
@@ -44,9 +51,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12% 28px;
+    padding: 33px 13px;
 
-    span {
+    div {
       font-family: Sarabun;
       font-style: normal;
       color: #ffffff;
@@ -55,7 +62,7 @@
       line-height: 37px;
     }
 
-    span:not(:last-child) {
+    div:not(:last-child) {
       width: 80px;
       height: 38px;
 
@@ -64,7 +71,7 @@
       letter-spacing: 5px;
     }
 
-    span:last-child {
+    div:last-child {
       width: 70px;
       height: 44px;
 
@@ -80,6 +87,7 @@
     height: 26px;
     //left: 28px;
     //bottom: 53px;
+    padding-left: 28px;
 
     font-family: Sarabun;
     font-style: normal;
@@ -100,6 +108,7 @@
     height: 34px;
     //left: 28px;
     //bottom: 19px;
+    padding-left: 28px;
 
     font-family: Sarabun;
     font-style: normal;
@@ -116,6 +125,7 @@
     height: 26px;
     //right: 28px;
     //bottom: 53px;
+    padding-right: 28px;
 
     font-family: Sarabun;
     font-style: normal;
@@ -137,6 +147,7 @@
     height: 34px;
     //right: 28px;
     //bottom: 19px;
+    padding-right: 28px;
 
     font-family: Sarabun;
     font-style: normal;
@@ -169,9 +180,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12% 28px;
+    padding: 30px 8px 27px;
 
-    span {
+    div {
       font-family: Sarabun;
       font-style: normal;
       color: #ffffff;
@@ -180,7 +191,7 @@
       line-height: 32px;
     }
 
-    span:not(:last-child) {
+    div:not(:last-child) {
       width: 66px;
       height: 32px;
 
@@ -189,7 +200,7 @@
       letter-spacing: 4px;
     }
 
-    span:last-child {
+    div:last-child {
       width: 66px;
       height: 32px;
 
@@ -206,6 +217,7 @@
     height: 20px;
     //left: 28px;
     //bottom: 53px;
+    padding-left: 23px;
 
     font-family: Sarabun;
     font-style: normal;
@@ -226,6 +238,7 @@
     height: 29px;
     //left: 28px;
     //bottom: 19px;
+    padding-left: 23px;
 
     font-family: Sarabun;
     font-style: normal;
@@ -242,6 +255,7 @@
     height: 20px;
     //right: 28px;
     //bottom: 53px;
+    padding-right: 23px;
 
     font-family: Sarabun;
     font-style: normal;
@@ -263,6 +277,7 @@
     height: 29px;
     //right: 28px;
     //bottom: 19px;
+    padding-right: 23px;
 
     font-family: Sarabun;
     font-style: normal;

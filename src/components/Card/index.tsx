@@ -1,5 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { Row, Col } from 'react-bootstrap';
+
 import * as styles from './style.css';
 import * as cardStyles from './style.css';
 
@@ -50,12 +52,12 @@ class Card extends React.Component<IProps, IState> {
 
   renderCardNumber() {
     return (
-      <div className={cardStyles.cardNumber}>
-        <span>****</span>
-        <span>****</span>
-        <span>****</span>
-        <span>{this.state.number}</span>
-      </div>
+      <Row className={cardStyles.cardNumber}>
+        <Col>****</Col>
+        <Col>****</Col>
+        <Col>****</Col>
+        <Col>{this.state.number}</Col>
+      </Row>
     );
   }
 
@@ -73,10 +75,22 @@ class Card extends React.Component<IProps, IState> {
       <div className={this.getCardStyle()}>
         {this.renderCardType()}
         {this.renderCardNumber()}
-        <div className={cardStyles.cardHolder}>Card holder</div>
-        <div className={cardStyles.cardHolderName}>Lindsey Johnson</div>
-        <div className={cardStyles.expires}>Expires</div>
-        <div className={cardStyles.expiredDate}>08/21</div>
+        <Row>
+          <Col md={6} lg={6} className={cardStyles.cardHolder}>
+            Card holder
+          </Col>
+          <Col md={6} lg={6} className={cardStyles.expires}>
+            Expires
+          </Col>
+        </Row>
+        <Row>
+          <Col md={6} lg={6} className={cardStyles.cardHolderName}>
+            Lindsey Johnson
+          </Col>
+          <Col md={6} lg={6} className={cardStyles.expiredDate}>
+            08/21
+          </Col>
+        </Row>
       </div>
     );
   }
