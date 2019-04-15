@@ -1,32 +1,48 @@
-.card img {
+.background {
+  width: 348px;
+  height: 206px;
+  opacity: 0.4;
+  box-shadow: 0px 10px 36px rgba(134, 118, 251, 0.6);
+  right: 0px;
+  bottom: 0px;
+  background: linear-gradient(121.02deg, #8676fb 0%, #ab7bff 100%);
+  border-radius: 6px;
+}
+
+.background.card.card-active {
+  width: 420px;
+  height: 248px;
+  opacity: 1;
+}
+.background.card.card-active img {
   width: 57px;
   height: 57px;
   left: 28px;
   top: 8px;
   position: relative;
 }
-.card .card-number {
+.background.card.card-active .card-number {
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 12% 28px;
 }
-.card .card-number span {
+.background.card.card-active .card-number span {
   font-family: Sarabun;
   font-style: normal;
   color: #ffffff;
   display: inline-block;
   line-height: 37px;
 }
-.card .card-number span:not(:last-child) {
+.background.card.card-active .card-number span:not(:last-child) {
   width: 80px;
   height: 38px;
   font-weight: normal;
   font-size: 28px;
   letter-spacing: 5px;
 }
-.card .card-number span:last-child {
+.background.card.card-active .card-number span:last-child {
   width: 70px;
   height: 44px;
   font-weight: normal;
@@ -34,7 +50,7 @@
   text-align: right;
   letter-spacing: 2px;
 }
-.card .card-holder {
+.background.card.card-active .card-holder {
   width: 185px;
   height: 26px;
   font-family: Sarabun;
@@ -48,7 +64,7 @@
   /* white */
   opacity: 0.8;
 }
-.card .card-holder-name {
+.background.card.card-active .card-holder-name {
   width: 190px;
   height: 34px;
   font-family: Sarabun;
@@ -59,7 +75,7 @@
   letter-spacing: 0.1px;
   color: #ffffff;
 }
-.card .expires {
+.background.card.card-active .expires {
   width: 149px;
   height: 26px;
   font-family: Sarabun;
@@ -74,7 +90,7 @@
   /* white */
   opacity: 0.8;
 }
-.card .expired-date {
+.background.card.card-active .expired-date {
   width: 160px;
   height: 34px;
   font-family: Sarabun;
@@ -82,6 +98,101 @@
   font-weight: 500;
   font-size: 23px;
   line-height: 34px;
+  text-align: right;
+  letter-spacing: 0.1px;
+  color: #ffffff;
+}
+
+.background.card.card-second {
+  width: 348px;
+  height: 206px;
+  opacity: 0.4;
+}
+.background.card.card-second img {
+  width: 46px;
+  height: 46px;
+  left: 18px;
+  top: 5px;
+  position: relative;
+}
+.background.card.card-second .card-number {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12% 28px;
+}
+.background.card.card-second .card-number span {
+  font-family: Sarabun;
+  font-style: normal;
+  color: #ffffff;
+  display: inline-block;
+  line-height: 32px;
+}
+.background.card.card-second .card-number span:not(:last-child) {
+  width: 66px;
+  height: 32px;
+  font-weight: normal;
+  font-size: 23px;
+  letter-spacing: 4px;
+}
+.background.card.card-second .card-number span:last-child {
+  width: 66px;
+  height: 32px;
+  font-weight: normal;
+  text-align: right;
+  font-size: 22px;
+  line-height: 30px;
+  letter-spacing: 2px;
+}
+.background.card.card-second .card-holder {
+  width: 154px;
+  height: 20px;
+  font-family: Sarabun;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #ffffff;
+  /* white */
+  opacity: 0.8;
+}
+.background.card.card-second .card-holder-name {
+  width: 160px;
+  height: 29px;
+  font-family: Sarabun;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 29px;
+  letter-spacing: 0.1px;
+  color: #ffffff;
+}
+.background.card.card-second .expires {
+  width: 87px;
+  height: 20px;
+  font-family: Sarabun;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: right;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #ffffff;
+  /* white */
+  opacity: 0.8;
+}
+.background.card.card-second .expired-date {
+  width: 160px;
+  height: 29px;
+  font-family: Sarabun;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 29px;
   text-align: right;
   letter-spacing: 0.1px;
   color: #ffffff;

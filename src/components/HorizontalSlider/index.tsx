@@ -2,8 +2,6 @@ import * as React from 'react';
 import Card, { CardItem, CardList } from '../Card';
 import Slider from 'react-slick';
 
-import * as styles from './style.css';
-
 type TemplateState = Readonly<{
   activeIndex: number;
   activeCardId: number;
@@ -11,12 +9,12 @@ type TemplateState = Readonly<{
 }>;
 
 const cardsList: CardList = [
-  { number: 1000, id: 1, classes: styles.background, active: true },
-  { number: 2000, id: 2, classes: styles.background, active: false },
-  { number: 3000, id: 3, classes: styles.background, active: false },
-  { number: 4000, id: 4, classes: styles.background, active: false },
-  { number: 5000, id: 5, classes: styles.background, active: false },
-  { number: 6000, id: 6, classes: styles.background, active: false }
+  { number: 1000, id: 1, classes: '', active: true },
+  { number: 2000, id: 2, classes: '', active: false },
+  { number: 3000, id: 3, classes: '', active: false },
+  { number: 4000, id: 4, classes: '', active: false },
+  { number: 5000, id: 5, classes: '', active: false },
+  { number: 6000, id: 6, classes: '', active: false }
 ];
 
 const initialState: TemplateState = {

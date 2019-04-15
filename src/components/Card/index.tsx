@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import * as styles from '../HorizontalSlider/style.css';
+import * as styles from './style.css';
 import * as cardStyles from './style.css';
 
 const visa = require('../../../docs/img/cards/visa.svg');
@@ -42,6 +42,7 @@ class Card extends React.Component<IProps, IState> {
     return classNames(
       cardStyles.card,
       this.state.classes,
+      cardStyles.background,
       { [`${styles.cardActive}`]: this.props.active },
       { [`${styles.cardSecond}`]: !this.props.active }
     );
