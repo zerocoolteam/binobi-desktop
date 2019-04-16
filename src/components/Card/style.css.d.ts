@@ -2,6 +2,7 @@ export const background: string;
 export const card: string;
 export const cardActive: string;
 export const cardNumber: string;
+export const bottomPlace: string;
 export const cardHolder: string;
 export const cardHolderName: string;
 export const expires: string;

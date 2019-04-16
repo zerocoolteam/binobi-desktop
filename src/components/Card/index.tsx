@@ -51,12 +51,12 @@ class Card extends React.Component<IProps, IState> {
 
   renderCardNumber() {
     return (
-      <Row className={cardStyles.cardNumber}>
-        <Col>****</Col>
-        <Col>****</Col>
-        <Col>****</Col>
-        <Col>{this.state.number}</Col>
-      </Row>
+      <div className={cardStyles.cardNumber}>
+        <div>****</div>
+        <div>****</div>
+        <div>****</div>
+        <div>{this.state.number}</div>
+      </div>
     );
   }
 
@@ -78,22 +78,16 @@ class Card extends React.Component<IProps, IState> {
         </div>
         {this.renderCardNumber()}
         {/*<div className={cardStyles.wave}/>*/}
-        <Row>
-          <Col md={6} lg={6} className={cardStyles.cardHolder}>
-            Card holder
-          </Col>
-          <Col md={6} lg={6} className={cardStyles.expires}>
-            Expires
-          </Col>
-        </Row>
-        <Row>
-          <Col md={6} lg={6} className={cardStyles.cardHolderName}>
-            Lindsey Johnson
-          </Col>
-          <Col md={6} lg={6} className={cardStyles.expiredDate}>
-            08/21
-          </Col>
-        </Row>
+        <div className={cardStyles.bottomPlace}>
+          <div>
+            <div className={cardStyles.cardHolder}>Card holder</div>
+            <div className={cardStyles.cardHolderName}>Lindsey Johnson</div>
+          </div>
+          <div>
+            <div className={cardStyles.expires}>Expires</div>
+            <div className={cardStyles.expiredDate}>08/21</div>
+          </div>
+        </div>
       </div>
     );
   }

@@ -5,7 +5,7 @@
   box-shadow: 0px 10px 36px rgba(134, 118, 251, 0.6);
   background: linear-gradient(121.02deg, #8676fb 0%, #ab7bff 100%);
   border-radius: 6px;
-  margin: 32px auto 32px;
+  margin: 32px auto 55px;
   transition: transform 1.05s ease-in-out;
 }
 
@@ -14,64 +14,63 @@
   margin-right: 0 !important;
 }
 
-.background.card.card-active {
+.card.card-active {
+  opacity: 1;
   transform: scale(1.2);
   transition: transform 1.05s ease-in-out;
-  opacity: 1;
 }
-.background.card.card-active .card-number {
+.card.card-active .card-number {
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 33px 13px;
+  padding: 17px 28px;
 }
-.background.card.card-active .card-number div {
+.card.card-active .card-number div {
   font-family: Sarabun;
   font-style: normal;
   color: #ffffff;
-  display: inline-block;
   line-height: 37px;
 }
-.background.card.card-active .card-number div:not(:last-child) {
-  width: 80px;
-  height: 38px;
+.card.card-active .card-number div:not(:last-child) {
   font-weight: normal;
+  font-size: 23px;
   letter-spacing: 5px;
 }
-.background.card.card-active .card-number div:last-child {
-  width: 70px;
-  height: 44px;
+.card.card-active .card-number div:last-child {
   font-weight: normal;
-  font-size: 26px;
+  font-size: 22px;
   text-align: right;
   letter-spacing: 2px;
 }
-.background.card.card-active .card-holder {
-  padding-left: 28px;
+.card.card-active .bottom-place {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 28px;
+}
+.card.card-active .bottom-place .card-holder {
   font-family: Sarabun;
   font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 28px;
+  letter-spacing: 0.4px;
   text-transform: uppercase;
   color: #ffffff;
   /* white */
   opacity: 0.8;
 }
-.background.card.card-active .card-holder-name {
-  width: 190px;
-  height: 34px;
-  padding-left: 28px;
+.card.card-active .bottom-place .card-holder-name {
   font-family: Sarabun;
   font-style: normal;
   font-weight: 500;
-  font-size: 23px;
+  font-size: 19px;
   line-height: 34px;
   letter-spacing: 0.1px;
   color: #ffffff;
 }
-.background.card.card-active .expires {
-  width: 149px;
-  height: 26px;
-  padding-right: 28px;
+.card.card-active .bottom-place .expires {
   font-family: Sarabun;
   font-style: normal;
   font-weight: 300;
@@ -84,10 +83,7 @@
   /* white */
   opacity: 0.8;
 }
-.background.card.card-active .expired-date {
-  width: 160px;
-  height: 34px;
-  padding-right: 28px;
+.card.card-active .bottom-place .expired-date {
   font-family: Sarabun;
   font-style: normal;
   font-weight: 500;
@@ -97,44 +93,42 @@
   letter-spacing: 0.1px;
   color: #ffffff;
 }
-.background.card.card-active .wave {
+.card.card-active .wave {
   left: -25.69px;
   right: -27.12px;
   top: 133.6px;
   bottom: -30.29px;
   background: linear-gradient(137.84deg, #8e7efb -1.28%, #a777f1 99.13%);
 }
-.background.card.card-active .type-and-more {
+.card.card-active .type-and-more {
   display: flex;
   justify-content: space-between;
   padding: 8px 28px 0;
 }
 
-.background.card.card-second {
+.card.card-second {
   opacity: 0.4;
 }
-.background.card.card-second .card-number {
+.card.card-second .card-number {
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 8px 27px;
+  padding: 22px 23px;
 }
-.background.card.card-second .card-number div {
+.card.card-second .card-number div {
   font-family: Sarabun;
   font-style: normal;
   color: #ffffff;
   display: inline-block;
   line-height: 32px;
 }
-.background.card.card-second .card-number div:not(:last-child) {
-  width: 66px;
-  height: 32px;
+.card.card-second .card-number div:not(:last-child) {
   font-weight: normal;
   font-size: 23px;
   letter-spacing: 4px;
 }
-.background.card.card-second .card-number div:last-child {
+.card.card-second .card-number div:last-child {
   width: 66px;
   height: 32px;
   font-weight: normal;
@@ -143,10 +137,13 @@
   line-height: 30px;
   letter-spacing: 2px;
 }
-.background.card.card-second .card-holder {
-  width: 154px;
-  height: 20px;
-  padding-left: 23px;
+.card.card-second .bottom-place {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 23px;
+}
+.card.card-second .bottom-place .card-holder {
   font-family: Sarabun;
   font-style: normal;
   font-weight: 300;
@@ -158,10 +155,7 @@
   /* white */
   opacity: 0.8;
 }
-.background.card.card-second .card-holder-name {
-  width: 160px;
-  height: 29px;
-  padding-left: 23px;
+.card.card-second .bottom-place .card-holder-name {
   font-family: Sarabun;
   font-style: normal;
   font-weight: 500;
@@ -170,10 +164,7 @@
   letter-spacing: 0.1px;
   color: #ffffff;
 }
-.background.card.card-second .expires {
-  width: 87px;
-  height: 20px;
-  padding-right: 23px;
+.card.card-second .bottom-place .expires {
   font-family: Sarabun;
   font-style: normal;
   font-weight: 300;
@@ -186,10 +177,7 @@
   /* white */
   opacity: 0.8;
 }
-.background.card.card-second .expired-date {
-  width: 160px;
-  height: 29px;
-  padding-right: 23px;
+.card.card-second .bottom-place .expired-date {
   font-family: Sarabun;
   font-style: normal;
   font-weight: 500;
@@ -199,8 +187,10 @@
   letter-spacing: 0.1px;
   color: #ffffff;
 }
-.background.card.card-second .type-and-more {
+.card.card-second .type-and-more {
   display: flex;
   justify-content: space-between;
   padding: 5px 23px 0;
 }
+
+/*# sourceMappingURL=style.css.map */

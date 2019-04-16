@@ -8,7 +8,8 @@
 
   background: linear-gradient(121.02deg, #8676fb 0%, #ab7bff 100%);
   border-radius: 6px;
-  margin: 32px auto 32px;
+  margin: 32px auto 55px;
+
   transition: transform 1.05s ease-in-out;
 }
 
@@ -19,125 +20,100 @@
   }
 }
 
-.background.card.card-active {
-  //width: 420px;
-  //height: 248px;
+.card.card-active {
+  opacity: 1;
+
   transform: scale(1.2);
   transition: transform 1.05s ease-in-out;
-  opacity: 1;
 
   .card-number {
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 33px 13px;
+    padding: 17px 28px;
 
     div {
       font-family: Sarabun;
       font-style: normal;
       color: #ffffff;
-      display: inline-block;
 
       line-height: 37px;
     }
 
     div:not(:last-child) {
-      width: 80px;
-      height: 38px;
-
       font-weight: normal;
-      //font-size: 28px;
+      font-size: 23px;
       letter-spacing: 5px;
     }
 
     div:last-child {
-      width: 70px;
-      height: 44px;
-
       font-weight: normal;
-      font-size: 26px;
+      font-size: 22px;
       text-align: right;
       letter-spacing: 2px;
     }
   }
 
-  .card-holder {
-    //width: 185px;
-    //height: 26px;
-    //left: 28px;
-    //bottom: 53px;
-    padding-left: 28px;
+  .bottom-place {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 28px;
 
-    font-family: Sarabun;
-    font-style: normal;
-    //font-weight: 300;
-    //font-size: 17px;
-    //line-height: 28px;
-    //letter-spacing: 0.4px;
-    text-transform: uppercase;
+    .card-holder {
+      font-family: Sarabun;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 28px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
 
-    color: #ffffff;
+      color: #ffffff;
 
-    /* white */
-    opacity: 0.8;
-  }
+      /* white */
+      opacity: 0.8;
+    }
 
-  .card-holder-name {
-    width: 190px;
-    height: 34px;
-    //left: 28px;
-    //bottom: 19px;
-    padding-left: 28px;
+    .card-holder-name {
+      font-family: Sarabun;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 19px;
+      line-height: 34px;
+      letter-spacing: 0.1px;
 
-    font-family: Sarabun;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 23px;
-    line-height: 34px;
-    letter-spacing: 0.1px;
+      color: #ffffff;
+    }
 
-    color: #ffffff;
-  }
+    .expires {
+      font-family: Sarabun;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 17px;
+      line-height: 28px;
+      text-align: right;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
 
-  .expires {
-    width: 149px;
-    height: 26px;
-    //right: 28px;
-    //bottom: 53px;
-    padding-right: 28px;
+      color: #ffffff;
 
-    font-family: Sarabun;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 17px;
-    line-height: 28px;
-    text-align: right;
-    letter-spacing: 0.4px;
-    text-transform: uppercase;
+      /* white */
+      opacity: 0.8;
+    }
 
-    color: #ffffff;
+    .expired-date {
+      font-family: Sarabun;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 23px;
+      line-height: 34px;
+      text-align: right;
+      letter-spacing: 0.1px;
 
-    /* white */
-    opacity: 0.8;
-  }
-
-  .expired-date {
-    width: 160px;
-    height: 34px;
-    //right: 28px;
-    //bottom: 19px;
-    padding-right: 28px;
-
-    font-family: Sarabun;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 23px;
-    line-height: 34px;
-    text-align: right;
-    letter-spacing: 0.1px;
-
-    color: #ffffff;
+      color: #ffffff;
+    }
   }
 
   .wave {
@@ -156,10 +132,7 @@
   }
 }
 
-.background.card.card-second {
-  //width: 348px;
-  //height: 206px;
-
+.card.card-second {
   opacity: 0.4;
 
   .card-number {
@@ -167,7 +140,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 8px 27px;
+    padding: 22px 23px;
 
     div {
       font-family: Sarabun;
@@ -179,9 +152,6 @@
     }
 
     div:not(:last-child) {
-      width: 66px;
-      height: 32px;
-
       font-weight: normal;
       font-size: 23px;
       letter-spacing: 4px;
@@ -199,82 +169,65 @@
     }
   }
 
-  .card-holder {
-    width: 154px;
-    height: 20px;
-    //left: 28px;
-    //bottom: 53px;
-    padding-left: 23px;
+  .bottom-place {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 23px;
 
-    font-family: Sarabun;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0.4px;
-    text-transform: uppercase;
+    .card-holder {
+      font-family: Sarabun;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
 
-    color: #ffffff;
+      color: #ffffff;
 
-    /* white */
-    opacity: 0.8;
-  }
+      /* white */
+      opacity: 0.8;
+    }
 
-  .card-holder-name {
-    width: 160px;
-    height: 29px;
-    //left: 28px;
-    //bottom: 19px;
-    padding-left: 23px;
+    .card-holder-name {
+      font-family: Sarabun;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 19px;
+      line-height: 29px;
+      letter-spacing: 0.1px;
 
-    font-family: Sarabun;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 19px;
-    line-height: 29px;
-    letter-spacing: 0.1px;
+      color: #ffffff;
+    }
 
-    color: #ffffff;
-  }
+    .expires {
+      font-family: Sarabun;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 20px;
+      text-align: right;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
 
-  .expires {
-    width: 87px;
-    height: 20px;
-    //right: 28px;
-    //bottom: 53px;
-    padding-right: 23px;
+      color: #ffffff;
 
-    font-family: Sarabun;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 20px;
-    text-align: right;
-    letter-spacing: 0.4px;
-    text-transform: uppercase;
+      /* white */
+      opacity: 0.8;
+    }
 
-    color: #ffffff;
+    .expired-date {
+      font-family: Sarabun;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 19px;
+      line-height: 29px;
+      text-align: right;
+      letter-spacing: 0.1px;
 
-    /* white */
-    opacity: 0.8;
-  }
-
-  .expired-date {
-    width: 160px;
-    height: 29px;
-    //right: 28px;
-    //bottom: 19px;
-    padding-right: 23px;
-
-    font-family: Sarabun;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 19px;
-    line-height: 29px;
-    text-align: right;
-    letter-spacing: 0.1px;
-
-    color: #ffffff;
+      color: #ffffff;
+    }
   }
 
   .type-and-more {
