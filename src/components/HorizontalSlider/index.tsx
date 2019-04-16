@@ -1,6 +1,8 @@
 import * as React from 'react';
 import Card, { CardItem, CardList } from '../Card';
 import Slider from 'react-slick';
+import * as styles from './style.css';
+import classNames = require('classnames');
 
 type TemplateState = Readonly<{
   activeIndex: number;
@@ -37,13 +39,15 @@ class HorizontalSlider extends React.Component<{}, TemplateState> {
 
   render() {
     let settings = {
+      arrows: false,
       infinite: true,
-      speed: 500,
-      slidesToShow: 3,
+      speed: 1000,
+      slidesToShow: Math.floor((window.innerWidth - 100) / 348),
       slidesToScroll: 1,
       centerMode: true,
-      className: 'center slider variable-width',
-      centerPadding: '60px',
+      className: classNames('center', styles.slickCustom),
+      // adaptiveHeight: true,
+      centerPadding: '50px',
       focusOnSelect: true,
       beforeChange: (current: number, next: number) => {
         this.handleSelect(current, next);
@@ -51,13 +55,11 @@ class HorizontalSlider extends React.Component<{}, TemplateState> {
     };
 
     return (
-      <div>
-        <Slider {...settings}>
-          {this.state.cards.map((card: CardItem) => (
-            <Card key={card.id} data={card} active={this.state.activeCardId === card.id} />
-          ))}
-        </Slider>
-      </div>
+      <Slider {...settings}>
+        {this.state.cards.map((card: CardItem) => (
+          <Card key={card.id} data={card} active={this.state.activeCardId === card.id} />
+        ))}
+      </Slider>
     );
   }
 }

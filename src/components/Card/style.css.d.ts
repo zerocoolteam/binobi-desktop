@@ -6,4 +6,6 @@ export const cardHolder: string;
 export const cardHolderName: string;
 export const expires: string;
 export const expiredDate: string;
+export const wave: string;
+export const typeAndMore: string;
 export const cardSecond: string;

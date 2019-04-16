@@ -1,0 +1,149 @@
+.navigation {
+  height: 112px;
+  margin-bottom: 50px;
+
+  .background {
+    top: 80%;
+    bottom: -60%;
+
+    .line {
+      height: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 7em;
+      /* purple dark */
+      background: #463c6a;
+
+      .title {
+        width: 88px;
+        height: 24px;
+        left: 165px;
+        top: 8px;
+
+        font-family: Sarabun;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.1px;
+
+        color: #ffffff;
+      }
+
+      .profile-photo {
+        width: 24px;
+        height: 24px;
+        left: 1249px;
+        top: 8px;
+
+        .avatar {
+          border-radius: 12px;
+          border: 2px solid #ffffff;
+          width: 24px;
+          height: 24px;
+          left: 1249px;
+          top: 8px;
+
+          img {
+            width: 28px;
+            height: 41px;
+            right: 166px;
+            top: 3px;
+          }
+        }
+
+        .notification-present {
+          border-radius: 50%;
+          border: 2px solid #ffffff;
+          display: inline-block;
+          right: -15px;
+          top: -31px;
+          width: 40%;
+          height: 40%;
+
+          /* green notification */
+          background-color: #54d3ad;
+
+          position: relative;
+        }
+      }
+    }
+
+    .subtract {
+      height: 72px;
+      bottom: 28px;
+
+      background: #ffffff;
+      //transform: matrix(-1, 0, 0, 1, 0, 0);
+      box-shadow: 0px -4px 14px rgba(0, 0, 0, 0.06);
+
+      .main-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: inherit;
+        //padding: 19px 119px 11px 165px;
+        padding: 0 50px;
+
+        .first-column {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .second-column {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        a {
+          text-decoration: none;
+          color: #a6aab4;
+
+          font-family: Sarabun;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 14px;
+          line-height: 20px;
+          letter-spacing: 0.2px;
+
+          &.current {
+            color: #613eea;
+          }
+
+          .unit {
+            width: 250px;
+            height: 50px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            span {
+              padding: 0 16px;
+            }
+          }
+        }
+
+        .send-money {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 56px;
+          height: 56px;
+          border-radius: 50%;
+          margin: -25px 0;
+          align-self: flex-end;
+          z-index: 1;
+
+          /* purple */
+          background: #613eea;
+          /* purple button-circle shadow */
+          box-shadow: 0px 4px 12px rgba(97, 62, 234, 0.5);
+        }
+      }
+    }
+  }
+}

@@ -6,25 +6,11 @@
 
   box-shadow: 0px 10px 36px rgba(134, 118, 251, 0.6);
 
-  right: 0px;
-  bottom: 0px;
-
   background: linear-gradient(121.02deg, #8676fb 0%, #ab7bff 100%);
   border-radius: 6px;
+  margin: 32px auto 32px;
+  transition: transform 1.05s ease-in-out;
 }
-
-//.background.card-active {
-//  width: 420px;
-//  height: 248px;
-//  opacity: 1;
-//}
-//
-//.background.card-second {
-//  width: 348px;
-//  height: 206px;
-//
-//  opacity: 0.4;
-//}
 
 .card {
   div {
@@ -34,17 +20,11 @@
 }
 
 .background.card.card-active {
-  width: 420px;
-  height: 248px;
+  //width: 420px;
+  //height: 248px;
+  transform: scale(1.2);
+  transition: transform 1.05s ease-in-out;
   opacity: 1;
-
-  img {
-    width: 57px;
-    height: 57px;
-    left: 28px;
-    top: 8px;
-    position: relative;
-  }
 
   .card-number {
     position: relative;
@@ -67,7 +47,7 @@
       height: 38px;
 
       font-weight: normal;
-      font-size: 28px;
+      //font-size: 28px;
       letter-spacing: 5px;
     }
 
@@ -83,18 +63,18 @@
   }
 
   .card-holder {
-    width: 185px;
-    height: 26px;
+    //width: 185px;
+    //height: 26px;
     //left: 28px;
     //bottom: 53px;
     padding-left: 28px;
 
     font-family: Sarabun;
     font-style: normal;
-    font-weight: 300;
-    font-size: 17px;
-    line-height: 28px;
-    letter-spacing: 0.4px;
+    //font-weight: 300;
+    //font-size: 17px;
+    //line-height: 28px;
+    //letter-spacing: 0.4px;
     text-transform: uppercase;
 
     color: #ffffff;
@@ -159,21 +139,28 @@
 
     color: #ffffff;
   }
+
+  .wave {
+    left: -25.69px;
+    right: -27.12px;
+    top: 133.6px;
+    bottom: -30.29px;
+
+    background: linear-gradient(137.84deg, #8e7efb -1.28%, #a777f1 99.13%);
+  }
+
+  .type-and-more {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 28px 0;
+  }
 }
 
 .background.card.card-second {
-  width: 348px;
-  height: 206px;
+  //width: 348px;
+  //height: 206px;
 
   opacity: 0.4;
-
-  img {
-    width: 46px;
-    height: 46px;
-    left: 18px;
-    top: 5px;
-    position: relative;
-  }
 
   .card-number {
     position: relative;
@@ -288,5 +275,11 @@
     letter-spacing: 0.1px;
 
     color: #ffffff;
+  }
+
+  .type-and-more {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 23px 0;
   }
 }

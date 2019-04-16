@@ -1,11 +1,10 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { Row, Col } from 'react-bootstrap';
+import { More, Visa } from '../../../docs/img';
 
 import * as styles from './style.css';
 import * as cardStyles from './style.css';
-
-const visa = require('../../../docs/img/cards/visa.svg');
 
 export type CardItem = {
   id: number;
@@ -64,17 +63,21 @@ class Card extends React.Component<IProps, IState> {
   renderCardType() {
     switch (this.state.type) {
       case 'visa':
-        return <img src={visa} />;
+        return <img src={Visa} />;
       default:
-        return <img src={visa} />;
+        return <img src={Visa} />;
     }
   }
 
   render() {
     return (
       <div className={this.getCardStyle()}>
-        {this.renderCardType()}
+        <div className={cardStyles.typeAndMore}>
+          {this.renderCardType()}
+          <img src={More} />
+        </div>
         {this.renderCardNumber()}
+        {/*<div className={cardStyles.wave}/>*/}
         <Row>
           <Col md={6} lg={6} className={cardStyles.cardHolder}>
             Card holder

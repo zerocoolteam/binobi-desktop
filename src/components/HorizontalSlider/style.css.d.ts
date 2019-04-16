@@ -1,1 +1,1 @@
-export {};
+export const slickCustom: string;

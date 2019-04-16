@@ -1,11 +1,8 @@
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
-import * as styles from '../style.css';
+import { Home, Wallets, Settings, Reports, Send } from '../../../../../docs/img';
 
-const home = require('../../../../../docs/img/nav_icons/home.svg');
-const wallets = require('../../../../../docs/img/nav_icons/wallets.svg');
-const settings = require('../../../../../docs/img/nav_icons/settings.svg');
-const reports = require('../../../../../docs/img/nav_icons/reports.svg');
+import * as styles from '../style.css';
 
 type Props = {};
 type State = { key: string };
@@ -14,38 +11,41 @@ class NavigationTabs extends React.Component<Props, State> {
   render() {
     return (
       <div className={styles.subtract}>
-        <nav>
-          <ul>
-            <li>
-              <NavLink exact activeClassName="current" to="/">
-                <span>
-                  <img src={home} />
-                  Home
-                </span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink exact activeClassName="current" to="/wallets">
-                <div>
-                  <img src={wallets} />
-                  <span>Wallets</span>
-                </div>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink exact activeClassName="current" to="/reports">
-                <img src={reports} />
+        <div className={styles.mainRow}>
+          <div className={styles.firstColumn}>
+            <NavLink exact activeClassName={styles.current} to="/">
+              <div className={styles.unit}>
+                <img src={Home} />
+                <span>Home</span>
+              </div>
+            </NavLink>
+            <NavLink activeClassName={styles.current} to="/wallets">
+              <div className={styles.unit}>
+                <img src={Wallets} />
+                <span>Wallets</span>
+              </div>
+            </NavLink>
+          </div>
+
+          <div className={styles.sendMoney}>
+            <img src={Send} />
+          </div>
+
+          <div className={styles.secondColumn}>
+            <NavLink activeClassName={styles.current} to="/reports">
+              <div className={styles.unit}>
+                <img src={Reports} />
                 <span>Reports</span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink exact activeClassName="current" to="/settings">
-                <img src={settings} />
+              </div>
+            </NavLink>
+            <NavLink activeClassName={styles.current} to="/settings">
+              <div className={styles.unit}>
+                <img src={Settings} />
                 <span>Settings</span>
-              </NavLink>
-            </li>
-          </ul>
-        </nav>
+              </div>
+            </NavLink>
+          </div>
+        </div>
       </div>
     );
   }
