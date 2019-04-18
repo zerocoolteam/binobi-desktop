@@ -1,8 +1,6 @@
 import * as React from 'react';
 import Card, { CardItem, CardList } from '../Card';
 import Slider from 'react-slick';
-import * as styles from './style.css';
-import classNames = require('classnames');
 
 type TemplateState = Readonly<{
   activeIndex: number;
@@ -25,29 +23,37 @@ const initialState: TemplateState = {
   cards: cardsList
 };
 
-class HorizontalSlider extends React.Component<{}, TemplateState> {
+class CardSlider extends React.Component<{}, TemplateState> {
   constructor(props: any) {
     super(props);
 
     this.state = initialState;
   }
 
-  handleSelect(current: number, next: number): void {
+  private handleSelect(current: number, next: number): void {
     let card: CardItem = this.state.cards[next];
     this.setState({ activeIndex: next, activeCardId: card.id });
   }
+
+  private calcSlidesToShowCount = (): number => {
+    return Math.floor((window.innerWidth - 110) / 348);
+  };
+
+  private calcPaddingBetweenSlides = (): string => {
+    return this.calcSlidesToShowCount() <= 3 ? '60px' : '0px';
+  };
 
   render() {
     let settings = {
       arrows: false,
       infinite: true,
       speed: 1000,
-      slidesToShow: Math.floor((window.innerWidth - 100) / 348),
+      slidesToShow: this.calcSlidesToShowCount(),
       slidesToScroll: 1,
       centerMode: true,
-      className: classNames('center', styles.slickCustom),
+      className: 'center',
       // adaptiveHeight: true,
-      centerPadding: '50px',
+      centerPadding: this.calcPaddingBetweenSlides(),
       focusOnSelect: true,
       beforeChange: (current: number, next: number) => {
         this.handleSelect(current, next);
@@ -64,4 +70,4 @@ class HorizontalSlider extends React.Component<{}, TemplateState> {
   }
 }
 
-export default HorizontalSlider;
+export default CardSlider;

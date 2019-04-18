@@ -1,14 +1,8 @@
-.background {
-    background: #e5e5e5;
-    height: 100vh;
-}
-
 .balance {
-    text-align: center;
-    margin-bottom: 25px;
-}
+  text-align: center;
+  margin-bottom: 25px;
 
-.balance .title {
+  .title {
     width: 200px;
     height: 20px;
     /*left: 620px;*/
@@ -24,9 +18,9 @@
     letter-spacing: 0.2px;
 
     color: #a6aab4;
-}
+  }
 
-.balance .count {
+  .total {
     width: 200px;
     height: 42px;
     /*left: 620px;*/
@@ -41,4 +35,5 @@
     letter-spacing: 0.5px;
 
     color: #171d33;
+  }
 }

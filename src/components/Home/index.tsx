@@ -1,32 +1,22 @@
 import * as React from 'react';
-import HorizontalSlider from '../HorizontalSlider';
-import * as styles from './style.css';
+import CardSlider from '../CardSlider';
+import Balance from '../Balance';
+import Tabs from '../Tabs';
+import TransactionHistory from '../TransactionHistory';
 
-interface IState {
-    count: number;
-}
-
-class Home extends React.Component<{}, IState> {
-    constructor(props: any) {
-        super(props);
-        this.state = {
-            count: 927.01
-        };
-    }
-
-    render() {
-        return (
-            <div className={styles.background}>
-                <div className={styles.balance}>
-                    <span className={styles.title}>Your balance</span>
-                    <br />
-                    <span className={styles.count}>$ {this.state.count}</span>
-                </div>
-
-                <HorizontalSlider />
-            </div>
-        );
-    }
+class Home extends React.Component {
+  render() {
+    return (
+      <div>
+        <Balance total={927.01} />
+        <CardSlider />
+        <Tabs>
+          <TransactionHistory position="left" type="send" />
+          <TransactionHistory position="right" type="receive" />
+        </Tabs>
+      </div>
+    );
+  }
 }
 
 export default Home;

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { Row, Col } from 'react-bootstrap';
 import { More, Visa } from '../../../docs/img';
 
 import * as styles from './style.css';
@@ -16,7 +15,7 @@ export type CardItem = {
 
 export type CardList = {
   [key: number]: CardItem;
-  map(param: (card: CardItem, index?: number, array?: CardList) => any): any;
+  map(param: (card: CardItem, index?: number, array?: CardList) => any): CardList;
 };
 
 interface IState {
