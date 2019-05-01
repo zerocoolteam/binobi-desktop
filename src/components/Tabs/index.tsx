@@ -66,7 +66,7 @@ class Tabs extends React.Component<IProps, IState> {
           })}
         </div>
         <div className={this.getUnderscoreStyles()} />
-        <div className="tab-content">
+        <div className={styles.tabContent}>
           {this.props.children.map(child => {
             return child.props.type !== this.state.activeTab ? undefined : child;
           })}

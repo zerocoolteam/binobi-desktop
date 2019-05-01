@@ -4,7 +4,7 @@ import AppRouter from '../../../AppRouter';
 class Main extends React.Component {
   render() {
     return (
-      <div>
+      <div style={{ background: '#f8f9ff' }}>
         <AppRouter />
       </div>
     );

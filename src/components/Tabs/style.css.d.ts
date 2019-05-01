@@ -8,3 +8,4 @@ export const leftActive: string;
 export const twoItem: string;
 export const rightActive: string;
 export const centerActive: string;
+export const tabContent: string;

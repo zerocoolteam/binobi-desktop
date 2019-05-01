@@ -38,6 +38,7 @@
   .underline {
     width: 224px;
     height: 2px;
+    margin-top: -2.5px;
 
     transition: all 0.35s ease-in-out;
 
@@ -52,7 +53,7 @@
         transform: translateX(16.5vw);
       }
     }
-    //F8F9FA
+
     @media screen and (min-width: 1200px) {
       &.two-item {
         &.left-active {
@@ -96,5 +97,9 @@
         }
       }
     }
+  }
+
+  .tab-content {
+    margin-top: 32px;
   }
 }

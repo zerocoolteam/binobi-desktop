@@ -27,7 +27,7 @@
   padding: 17px 28px;
 }
 .card.card-active .card-number div {
-  font-family: Sarabun;
+  font-family: Sarabun, sans-serif;
   font-style: normal;
   color: #ffffff;
   line-height: 37px;
@@ -50,7 +50,7 @@
   padding: 0 28px;
 }
 .card.card-active .bottom-place .card-holder {
-  font-family: Sarabun;
+  font-family: Sarabun, sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 14px;
@@ -62,7 +62,7 @@
   opacity: 0.8;
 }
 .card.card-active .bottom-place .card-holder-name {
-  font-family: Sarabun;
+  font-family: Sarabun, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 19px;
@@ -71,7 +71,7 @@
   color: #ffffff;
 }
 .card.card-active .bottom-place .expires {
-  font-family: Sarabun;
+  font-family: Sarabun, sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 17px;
@@ -84,7 +84,7 @@
   opacity: 0.8;
 }
 .card.card-active .bottom-place .expired-date {
-  font-family: Sarabun;
+  font-family: Sarabun, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 23px;
@@ -117,7 +117,7 @@
   padding: 22px 23px;
 }
 .card.card-second .card-number div {
-  font-family: Sarabun;
+  font-family: Sarabun, sans-serif;
   font-style: normal;
   color: #ffffff;
   display: inline-block;
@@ -144,7 +144,7 @@
   padding: 0 23px;
 }
 .card.card-second .bottom-place .card-holder {
-  font-family: Sarabun;
+  font-family: Sarabun, sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 14px;
@@ -156,7 +156,7 @@
   opacity: 0.8;
 }
 .card.card-second .bottom-place .card-holder-name {
-  font-family: Sarabun;
+  font-family: Sarabun, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 19px;
@@ -165,7 +165,7 @@
   color: #ffffff;
 }
 .card.card-second .bottom-place .expires {
-  font-family: Sarabun;
+  font-family: Sarabun, sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 14px;
@@ -178,7 +178,7 @@
   opacity: 0.8;
 }
 .card.card-second .bottom-place .expired-date {
-  font-family: Sarabun;
+  font-family: Sarabun, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 19px;

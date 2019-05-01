@@ -1,0 +1,94 @@
+.transaction-history-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .transaction-block {
+    display: flex;
+    justify-content: space-between;
+
+    align-items: center;
+    width: 57%;
+    margin: 6px 0;
+    //align-items: center;
+    background: #ffffff;
+    /* card shadow */
+    box-shadow: 0px 4px 26px rgba(0, 0, 0, 0.06);
+    border-radius: 6px;
+
+    height: 60px;
+
+    .left-column {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 14px 16px;
+
+      .photo {
+        width: 32px;
+        height: 32px;
+        //padding: 14px 12px 14px 16px;
+        margin-right: 12px;
+
+        img {
+          border-radius: 50%;
+          border: 2px solid #ffffff;
+
+          width: inherit;
+          height: inherit;
+        }
+      }
+
+      .name-and-date {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+
+        .name {
+          font-family: Sarabun, sans-serif;
+          color: #171d33;
+          font-style: normal;
+
+          :first-child {
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 16px; /* identical to box height, or 133% */
+            letter-spacing: 0.1px;
+
+            /* black */
+            opacity: 0.4;
+          }
+
+          :last-child {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 20px; /* identical to box height, or 143% */
+            letter-spacing: 0.2px;
+          }
+        }
+
+        .date {
+          font-weight: normal;
+          font-size: 12px;
+          line-height: 18px; /* identical to box height, or 150% */
+          letter-spacing: 0.2px;
+
+          color: #757f8c;
+        }
+      }
+    }
+
+    .amount {
+      padding: 19px 16px;
+
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 24px; /* or 150% */
+      text-align: right;
+      letter-spacing: 0.1px;
+
+      color: #fa2e69;
+    }
+  }
+}

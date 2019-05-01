@@ -3,7 +3,7 @@ import * as React from 'react';
 import * as styles from './style.css';
 import classNames = require('classnames');
 
-export type TabType = {
+type TabType = {
   activeTab: string;
   type: string;
   activePosition: string;
