@@ -2,6 +2,8 @@ import * as React from 'react';
 import SearchForm from './SearchForm';
 import Transaction, { TransactionItem, TransactionList } from './Transaction';
 import * as styles from './style.css';
+import SearchInput from '../Form/Field/SearchInput';
+import { SubmitSearchButton } from '../Form/Field/SubmitSearchButton';
 
 // interface ITransactionHistory {
 //   [key: number]: TransactionList;
@@ -117,15 +119,26 @@ class TransactionHistory extends React.Component<IProps, IState> {
     };
   }
 
-  // search = (type: string) => {
-  //   return sendTransaction.filter(() => {
-  //   });
-  // };
-
   render() {
     return (
       <div className={styles.transactionHistoryContainer}>
-        {/*<SearchForm/>*/}
+        <SearchForm
+          submitButton={false}
+          url="http://localhost:3000"
+          formStyles={styles.form}
+          render={() => (
+            <div className={styles.searchForm}>
+              <SubmitSearchButton />
+              <SearchInput
+                id="search"
+                placeholder="Search transaction"
+                fieldStyle={styles.searchInput}
+              />
+            </div>
+          )}
+        />
+
+        <span className={styles.generalDate}>Today</span>
 
         {this.state.transactions.map((transaction: TransactionItem) => (
           <Transaction key={transaction.id} {...transaction} />

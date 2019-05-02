@@ -37,11 +37,11 @@ class CardSlider extends React.Component<{}, TemplateState> {
 
   private calcSlidesToShowCount = (): number => {
     return Math.floor((window.innerWidth - 110) / 348);
-  };
+  }
 
   private calcPaddingBetweenSlides = (): string => {
     return this.calcSlidesToShowCount() <= 3 ? '60px' : '0px';
-  };
+  }
 
   render() {
     let settings = {

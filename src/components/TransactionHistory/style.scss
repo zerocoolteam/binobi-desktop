@@ -3,6 +3,61 @@
   flex-direction: column;
   align-items: center;
 
+  .form {
+    width: 100%;
+
+    .search-form {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: inherit;
+
+      button {
+        background: none;
+        border: none;
+      }
+
+      .search-input {
+        width: 56%;
+
+        input {
+          height: 32px;
+
+          width: 57%;
+          background: inherit;
+          border: none;
+
+          font-family: Sarabun;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 12px;
+          line-height: 18px; /* identical to box height, or 150% */
+          letter-spacing: 0.2px;
+
+          color: #d6d9e4;
+
+          &:focus {
+            color: #757f8c;
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+
+  .general-date {
+    margin: 24px 0 6px 0;
+
+    font-family: Sarabun-Regular, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px; /* identical to box height, or 150% */
+    letter-spacing: 0.2px;
+
+    color: #757f8c;
+  }
+
   .transaction-block {
     display: flex;
     justify-content: space-between;
