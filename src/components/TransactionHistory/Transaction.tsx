@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as moment from 'moment';
 
 import * as styles from './style.css';
+import classNames from 'classnames';
 
 export type TransactionItem = {
   id: number;
@@ -58,7 +59,13 @@ class Transaction extends React.Component<IProps, IState> {
             <div className={styles.date}>{this.parseCreatedAt()}</div>
           </div>
         </div>
-        <div className={styles.amount}>
+        <div
+          className={classNames(
+            styles.amount,
+            { [`${styles.inTr}`]: this.state.direction === 'in' },
+            { [`${styles.out}`]: this.state.direction === 'out' }
+          )}
+        >
           {this.state.currency} {this.state.amount.toFixed(2)}
         </div>
       </div>

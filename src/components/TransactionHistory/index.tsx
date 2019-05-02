@@ -4,6 +4,7 @@ import Transaction, { TransactionItem, TransactionList } from './Transaction';
 import * as styles from './style.css';
 import SearchInput from '../Form/Field/SearchInput';
 import { SubmitSearchButton } from '../Form/Field/SubmitSearchButton';
+import moment = require('moment');
 
 // interface ITransactionHistory {
 //   [key: number]: TransactionList;
@@ -18,27 +19,6 @@ interface IProps extends TransactionHistoryType {}
 interface IState extends IProps {
   transactions: TransactionList;
 }
-
-// const receiveTransaction: ITransactionHistory = {
-//   1556618411973: [
-//     { id: 1, photo_url: '', full_name: 'Franz Ferdinand', amount: 12.00, currency: '$', created_at: 1556618411973 },
-//     { id: 2, photo_url: '', full_name: 'John Doe', amount: 134.00, currency: '$', created_at: 1556618411973 },
-//   ],
-//   1556446116000: [
-//     { id: 3, photo_url: '', full_name: 'Rebeca Moore', amount: 10.00, currency: '$', created_at: 1556446116000 },
-//   ]
-// }
-//
-// const sendTransaction: ITransactionHistory = {
-//   1556618411973: [
-//     {id: 4, photo_url: '', full_name: 'Rebeca Moore', amount: 972.00, currency: '$', created_at: 1556618411973 },
-//   ],
-//   1556446116000: [
-//     {id: 5, photo_url: '', full_name: 'Franz Ferdinand', amount: 125.00, currency: '$', created_at: 1556446116000},
-//     {id: 6, photo_url: '', full_name: 'John Doe', amount: 247.00, currency: '$', created_at: 1556446116000},
-//     {id: 7, photo_url: '', full_name: 'John Doe', amount: 22.00, currency: '$', created_at: 1556446116000},
-//   ]
-// }
 
 const receiveTransaction: TransactionList = [
   {
@@ -119,7 +99,34 @@ class TransactionHistory extends React.Component<IProps, IState> {
     };
   }
 
+  private parseCreatedAt = (createdAt: number) => {
+    // moment().calendar(null, {
+    //   sameDay: '[Today]',
+    //   nextDay: '[Tomorrow]',
+    //   nextWeek: 'dddd',
+    //   lastDay: '[Yesterday]',
+    //   lastWeek: '[Last] dddd',
+    //   sameElse: 'DD MMMM, YYYY'
+    // });
+    return moment(createdAt).format('DD MMMM, YYYY');
+  }
+
+  private renderTransaction = (transaction: TransactionItem, lastCreatedAt: number) => {
+    let collectionElem = [<Transaction key={transaction.id} {...transaction} />];
+    if (transaction.created_at !== lastCreatedAt) {
+      collectionElem.unshift(
+        <span key={transaction.created_at} className={styles.generalDate}>
+          {this.parseCreatedAt(transaction.created_at)}
+        </span>
+      );
+    }
+
+    return collectionElem;
+  }
+
   render() {
+    let lastCreatedAt: number;
+
     return (
       <div className={styles.transactionHistoryContainer}>
         <SearchForm
@@ -138,11 +145,12 @@ class TransactionHistory extends React.Component<IProps, IState> {
           )}
         />
 
-        <span className={styles.generalDate}>Today</span>
+        {this.state.transactions.map((transaction: TransactionItem) => {
+          let elements = this.renderTransaction(transaction, lastCreatedAt);
+          lastCreatedAt = transaction.created_at;
 
-        {this.state.transactions.map((transaction: TransactionItem) => (
-          <Transaction key={transaction.id} {...transaction} />
-        ))}
+          return elements;
+        })}
       </div>
     );
   }

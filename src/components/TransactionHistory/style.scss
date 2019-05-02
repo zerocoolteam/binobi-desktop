@@ -56,6 +56,7 @@
     letter-spacing: 0.2px;
 
     color: #757f8c;
+    width: 57%;
   }
 
   .transaction-block {
@@ -143,7 +144,13 @@
       text-align: right;
       letter-spacing: 0.1px;
 
-      color: #fa2e69;
+      &.out {
+        color: #fa2e69;
+      }
+
+      &.in-tr {
+        color: #10c971;
+      }
     }
   }
 }
