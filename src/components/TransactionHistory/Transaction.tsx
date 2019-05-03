@@ -12,6 +12,7 @@ export type TransactionItem = {
   currency: string;
   created_at: number;
   direction: 'in' | 'out';
+  card_id: number;
 };
 
 export type TransactionList = {
@@ -28,7 +29,6 @@ class Transaction extends React.Component<IProps, IState> {
   constructor(props: any) {
     super(props);
 
-    console.log(this.props);
     this.state = {
       id: this.props.id,
       photo_url: this.props.photo_url,
@@ -36,7 +36,8 @@ class Transaction extends React.Component<IProps, IState> {
       amount: this.props.amount,
       currency: this.props.currency,
       created_at: this.props.created_at,
-      direction: this.props.direction
+      direction: this.props.direction,
+      card_id: this.props.card_id
     };
   }
 

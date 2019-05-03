@@ -1,32 +1,20 @@
 import * as React from 'react';
-
 import * as styles from './style.css';
 
-interface IState {
+interface IBalance {
   total: number;
+  title: string;
 }
 
-interface IProps {
-  total: number;
-}
-
-class Balance extends React.Component<IProps, IState> {
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      total: this.props.total
-    };
-  }
-
-  render() {
-    return (
-      <div className={styles.balance}>
-        <span className={styles.title}>Your balance</span>
-        <br />
-        <span className={styles.total}>$ {this.state.total}</span>
-      </div>
-    );
-  }
-}
+const Balance = ({ total, title }: IBalance) => {
+  console.log(total);
+  return (
+    <div className={styles.balance}>
+      <span className={styles.title}>{title}</span>
+      <br />
+      <span className={styles.total}>$ {total}</span>
+    </div>
+  );
+};
 
 export default Balance;

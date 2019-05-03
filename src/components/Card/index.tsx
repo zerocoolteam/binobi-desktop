@@ -10,10 +10,17 @@ export type CardItem = {
   number: number;
   classes: string;
   active: boolean;
+  balance: number;
+  income_total: number;
+  spent_total: number;
+  holder_name: string;
+  expired_at: string;
+  cvv: number;
   type?: string;
 };
 
 export type CardList = {
+  length: number;
   [key: number]: CardItem;
   map(param: (card: CardItem, index?: number, array?: CardList) => any): CardList;
 };
@@ -23,6 +30,9 @@ interface IState {
   number: number;
   classes: string;
   active: boolean;
+  balance: number;
+  holder_name: string;
+  expired_at: string;
   type?: string;
 }
 
@@ -80,11 +90,11 @@ class Card extends React.Component<IProps, IState> {
         <div className={cardStyles.bottomPlace}>
           <div>
             <div className={cardStyles.cardHolder}>Card holder</div>
-            <div className={cardStyles.cardHolderName}>Lindsey Johnson</div>
+            <div className={cardStyles.cardHolderName}>{this.state.holder_name}</div>
           </div>
           <div>
             <div className={cardStyles.expires}>Expires</div>
-            <div className={cardStyles.expiredDate}>08/21</div>
+            <div className={cardStyles.expiredDate}>{this.state.expired_at}</div>
           </div>
         </div>
       </div>

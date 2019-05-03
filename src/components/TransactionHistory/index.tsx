@@ -6,12 +6,9 @@ import SearchInput from '../Form/Field/SearchInput';
 import { SubmitSearchButton } from '../Form/Field/SubmitSearchButton';
 import moment = require('moment');
 
-// interface ITransactionHistory {
-//   [key: number]: TransactionList;
-// }
-
 type TransactionHistoryType = {
   type: string;
+  forCardId: number;
   position?: string;
 };
 
@@ -28,7 +25,8 @@ const receiveTransaction: TransactionList = [
     amount: 12.0,
     currency: '$',
     created_at: 1556618411973,
-    direction: 'in'
+    direction: 'in',
+    card_id: 2
   },
   {
     id: 2,
@@ -37,7 +35,8 @@ const receiveTransaction: TransactionList = [
     amount: 134.0,
     currency: '$',
     created_at: 1556618411973,
-    direction: 'in'
+    direction: 'in',
+    card_id: 2
   },
   {
     id: 3,
@@ -46,7 +45,8 @@ const receiveTransaction: TransactionList = [
     amount: 10.0,
     currency: '$',
     created_at: 1556446116000,
-    direction: 'in'
+    direction: 'in',
+    card_id: 1
   }
 ];
 
@@ -58,7 +58,8 @@ const sendTransaction: TransactionList = [
     amount: 972.01,
     currency: '$',
     created_at: 1556618411973,
-    direction: 'out'
+    direction: 'out',
+    card_id: 3
   },
   {
     id: 5,
@@ -67,7 +68,8 @@ const sendTransaction: TransactionList = [
     amount: 125.00234255,
     currency: '$',
     created_at: 1556446116000,
-    direction: 'out'
+    direction: 'out',
+    card_id: 2
   },
   {
     id: 6,
@@ -76,7 +78,8 @@ const sendTransaction: TransactionList = [
     amount: 247.0,
     currency: '$',
     created_at: 1556446116000,
-    direction: 'out'
+    direction: 'out',
+    card_id: 1
   },
   {
     id: 7,
@@ -85,7 +88,8 @@ const sendTransaction: TransactionList = [
     amount: 22.0,
     currency: '$',
     created_at: 1556446116000,
-    direction: 'out'
+    direction: 'out',
+    card_id: 1
   }
 ];
 
@@ -95,6 +99,7 @@ class TransactionHistory extends React.Component<IProps, IState> {
 
     this.state = {
       type: this.props.type,
+      forCardId: this.props.forCardId,
       transactions: this.props.type === 'receive' ? receiveTransaction : sendTransaction
     };
   }
@@ -146,10 +151,15 @@ class TransactionHistory extends React.Component<IProps, IState> {
         />
 
         {this.state.transactions.map((transaction: TransactionItem) => {
-          let elements = this.renderTransaction(transaction, lastCreatedAt);
-          lastCreatedAt = transaction.created_at;
+          console.log(this.state.forCardId);
+          if (transaction.card_id === this.state.forCardId) {
+            let elements = this.renderTransaction(transaction, lastCreatedAt);
+            lastCreatedAt = transaction.created_at;
 
-          return elements;
+            return elements;
+          } else {
+            return;
+          }
         })}
       </div>
     );
