@@ -2,36 +2,114 @@ import * as React from 'react';
 import Card, { CardItem, CardList } from '../Card';
 import Slider from 'react-slick';
 
-type TemplateState = Readonly<{
+interface IProps {
+  infinite: true | false;
+  onChangeCard(currentCard: CardItem): void;
+}
+
+interface TemplateState {
   activeIndex: number;
   activeCardId: number;
   cards: CardList;
-}>;
+  infinite: true | false;
+  onChangeCard(currentCard: CardItem): void;
+}
 
 const cardsList: CardList = [
-  { number: 1000, id: 1, classes: '', active: true },
-  { number: 2000, id: 2, classes: '', active: false },
-  { number: 3000, id: 3, classes: '', active: false },
-  { number: 4000, id: 4, classes: '', active: false },
-  { number: 5000, id: 5, classes: '', active: false },
-  { number: 6000, id: 6, classes: '', active: false }
+  {
+    number: 1000,
+    id: 1,
+    classes: '',
+    active: true,
+    balance: 927.1,
+    income_total: 22.4,
+    spent_total: 1234.5,
+    holder_name: 'Lindsey Johnson',
+    expired_at: '08/21',
+    cvv: 123
+  },
+  {
+    number: 2000,
+    id: 2,
+    classes: '',
+    active: false,
+    balance: 213.4,
+    income_total: 22.4,
+    spent_total: 1234.5,
+    holder_name: 'Lindsey Johnson',
+    expired_at: '08/21',
+    cvv: 123
+  },
+  {
+    number: 3000,
+    id: 3,
+    classes: '',
+    active: false,
+    balance: 0,
+    income_total: 22.4,
+    spent_total: 1234.5,
+    holder_name: 'Lindsey Johnson',
+    expired_at: '08/21',
+    cvv: 123
+  },
+  {
+    number: 4000,
+    id: 4,
+    classes: '',
+    active: false,
+    balance: 10003,
+    income_total: 22.4,
+    spent_total: 1234.5,
+    holder_name: 'Lindsey Johnson',
+    expired_at: '08/21',
+    cvv: 123
+  },
+  {
+    number: 5000,
+    id: 5,
+    classes: '',
+    active: false,
+    balance: 9207.1,
+    income_total: 22.4,
+    spent_total: 1234.5,
+    holder_name: 'Lindsey Johnson',
+    expired_at: '08/21',
+    cvv: 123
+  },
+  {
+    number: 6000,
+    id: 6,
+    classes: '',
+    active: false,
+    balance: 23.5,
+    income_total: 22.4,
+    spent_total: 1234.5,
+    holder_name: 'Lindsey Johnson',
+    expired_at: '08/21',
+    cvv: 123
+  }
 ];
 
-const initialState: TemplateState = {
-  activeIndex: 0,
-  activeCardId: cardsList[0].id,
-  cards: cardsList
-};
-
-class CardSlider extends React.Component<{}, TemplateState> {
+class CardSlider extends React.Component<IProps, TemplateState> {
   constructor(props: any) {
     super(props);
 
-    this.state = initialState;
+    this.state = {
+      activeIndex: 0,
+      activeCardId: cardsList[0].id,
+      cards: cardsList,
+      onChangeCard: this.props.onChangeCard,
+      infinite: this.props.infinite
+    };
+
+    this.state.onChangeCard(cardsList[0]);
   }
 
-  private handleSelect(current: number, next: number): void {
-    let card: CardItem = this.state.cards[next];
+  private handleSelect(_current: number, next: number): void {
+    const { cards, onChangeCard } = this.state;
+    let card: CardItem = cards[next];
+    onChangeCard(card);
+
     this.setState({ activeIndex: next, activeCardId: card.id });
   }
 
@@ -46,7 +124,7 @@ class CardSlider extends React.Component<{}, TemplateState> {
   render() {
     let settings = {
       arrows: false,
-      infinite: true,
+      infinite: this.state.infinite,
       speed: 1000,
       slidesToShow: this.calcSlidesToShowCount(),
       slidesToScroll: 1,
