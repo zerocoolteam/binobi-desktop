@@ -41,12 +41,13 @@ class Show extends React.Component<IProps, IState> {
       amount = this.state.spent_total || 1230.0;
     }
 
-    console.log(this.state);
-
     return (
       <div className={classNames(styles.amountBlock, amountClass)}>
         <span className={styles.title}>{title}</span>
         <span className={styles.amount}>$ {amount.toFixed(2)}</span>
+        <div className={styles.meter}>
+          <span style={{ width: `${75}%` }} />
+        </div>
       </div>
     );
   }
@@ -54,10 +55,22 @@ class Show extends React.Component<IProps, IState> {
   renderCardInfo = () => {
     return (
       <div className={styles.cardInfoRow}>
-        <div />
-        <div />
-        <div />
-        <div />
+        <div>
+          <span>Balance</span>
+          <span>{this.state.balance}</span>
+        </div>
+        <div>
+          <span>Card Holder</span>
+          <span>{this.state.holder_name}</span>
+        </div>
+        <div>
+          <span>Exp. Date</span>
+          <span>{this.state.expired_at}</span>
+        </div>
+        <div>
+          <span>CVV</span>
+          <span>{this.state.cvv}</span>
+        </div>
       </div>
     );
   }

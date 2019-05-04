@@ -10,7 +10,18 @@ class Home extends React.Component<{}, { currentCard: CardItem }> {
     super(props);
 
     this.state = {
-      currentCard: {} as CardItem
+      currentCard: {
+        number: 1000,
+        id: 1,
+        classes: '',
+        active: true,
+        balance: 927.1,
+        income_total: 22.4,
+        spent_total: 1234.5,
+        holder_name: 'Lindsey Johnson',
+        expired_at: '08/21',
+        cvv: 123
+      } as CardItem
     };
   }
 
