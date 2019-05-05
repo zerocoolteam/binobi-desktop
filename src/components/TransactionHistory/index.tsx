@@ -1,9 +1,9 @@
 import * as React from 'react';
-import SearchForm from './SearchForm';
+import SearchForm from '../Form/SearchForm';
 import Transaction, { TransactionItem, TransactionList } from './Transaction';
-import * as styles from './style.css';
 import SearchInput from '../Form/Field/SearchInput';
 import { SubmitSearchButton } from '../Form/Field/SubmitSearchButton';
+import * as styles from './style.css';
 import moment = require('moment');
 
 type TransactionHistoryType = {

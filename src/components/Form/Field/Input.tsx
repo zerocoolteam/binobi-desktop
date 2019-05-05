@@ -14,14 +14,24 @@ export interface IFieldProps {
   value?: any;
   placeholder?: string;
 
-  onChange: (e: FormEvent<HTMLInputElement>) => void;
+  fieldStyle?: string;
 
-  onBlur: (e: React.FormEvent<HTMLInputElement>) => void;
+  onChange?: (e: FormEvent<HTMLInputElement>) => void;
+
+  onBlur?: (e: React.FormEvent<HTMLInputElement>) => void;
 }
 
-const Input: React.SFC<IFieldProps> = ({ id, label, value, placeholder, onChange, onBlur }) => {
+const Input: React.SFC<IFieldProps> = ({
+  id,
+  label,
+  value,
+  placeholder,
+  onChange,
+  onBlur,
+  fieldStyle
+}) => {
   return (
-    <div className="form-group">
+    <div className={fieldStyle}>
       {label && <label htmlFor={id}>{label}</label>}
       <input
         id={id}

@@ -18,7 +18,6 @@ class CardInformation extends React.Component<ICardInformation, ICardInformation
   }
 
   renderElement = () => {
-    console.log(this.state.card);
     return this.state.card ? <Show {...this.state.card} /> : <New />;
   }
 

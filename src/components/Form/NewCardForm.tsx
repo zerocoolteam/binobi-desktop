@@ -1,10 +1,10 @@
 import * as React from 'react';
-import Form from '../Form';
+import Form from '.';
 
-class SearchForm extends Form {
+class NewCardForm extends Form {
   protected async submitForm(): Promise<boolean> {
     return true;
   }
 }
 
-export default SearchForm;
+export default NewCardForm;

@@ -2,7 +2,7 @@ import * as React from 'react';
 
 interface IFormProps {
   url: string;
-  submitButton: boolean;
+  submitButton?: boolean;
   formStyles?: string;
   render: () => React.ReactNode;
 }
@@ -19,7 +19,7 @@ export interface IFormState {
   values: IValues;
   errors: IErrors;
   formStyles?: string;
-  submitButton: boolean;
+  submitButton?: boolean;
   submitSuccess?: boolean;
 }
 

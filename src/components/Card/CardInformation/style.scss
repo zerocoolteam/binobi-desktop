@@ -96,17 +96,6 @@
     }
   }
 
-  .card-info-title {
-    font-family: Sarabun;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 18px; /* identical to box height, or 150% */
-    letter-spacing: 0.2px;
-
-    color: #757f8c;
-  }
-
   .card-info-row {
     display: flex;
     align-items: center;
@@ -158,6 +147,65 @@
 
       &:last-child {
         width: 95.618%;
+      }
+    }
+  }
+
+  .card-info-title {
+    font-family: Sarabun;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px; /* identical to box height, or 150% */
+    letter-spacing: 0.2px;
+
+    color: #757f8c;
+  }
+
+  .new-container {
+    width: 730px;
+
+    .new-form {
+      padding-top: 20px;
+
+      .input {
+        padding-bottom: 24px;
+
+        input {
+          font-family: Sarabun;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 22px; /* or 137% */
+          letter-spacing: 0.2px;
+
+          color: #a6aab4;
+          background: #f8f9fa;
+          height: 56px;
+
+          &:focus {
+          }
+        }
+      }
+
+      .submitNewCard {
+        font-family: Sarabun;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px; /* or 150% */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        letter-spacing: 0.1px;
+
+        color: #ffffff;
+
+        background: #e8e2fc;
+        border-radius: 6px;
+
+        height: 56px;
+        width: 100%;
       }
     }
   }
