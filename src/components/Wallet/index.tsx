@@ -26,7 +26,7 @@ class Wallet extends React.Component<{}, { currentCard: CardItem }> {
   holdCurrentCard = (currentCard: CardItem) => {
     this.state = { currentCard: currentCard };
     // this.setState({currentCard: currentCard})
-    console.log(this.state);
+    // console.log(this.state);
   }
 
   render() {
@@ -35,9 +35,10 @@ class Wallet extends React.Component<{}, { currentCard: CardItem }> {
         <Balance total={this.state.currentCard.balance} title="My wallet’s total balance" />
         <CardSlider
           infinite={false}
+          needNewCard={true}
           onChangeCard={(currentCard: CardItem) => this.holdCurrentCard(currentCard)}
         />
-        <CardInformation {...this.state.currentCard} />
+        <CardInformation card={this.state.currentCard} />
       </div>
     );
   }

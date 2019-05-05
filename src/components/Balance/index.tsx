@@ -7,7 +7,6 @@ interface IBalance {
 }
 
 const Balance = ({ total, title }: IBalance) => {
-  console.log(total);
   return (
     <div className={styles.balance}>
       <span className={styles.title}>{title}</span>

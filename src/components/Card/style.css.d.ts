@@ -1,5 +1,6 @@
 export const background: string;
 export const card: string;
+export const newCard: string;
 export const cardActive: string;
 export const cardNumber: string;
 export const bottomPlace: string;

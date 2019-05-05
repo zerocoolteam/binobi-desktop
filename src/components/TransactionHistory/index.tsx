@@ -151,7 +151,7 @@ class TransactionHistory extends React.Component<IProps, IState> {
         />
 
         {this.state.transactions.map((transaction: TransactionItem) => {
-          console.log(this.state.forCardId);
+          // console.log(this.state.forCardId);
           if (transaction.card_id === this.state.forCardId) {
             let elements = this.renderTransaction(transaction, lastCreatedAt);
             lastCreatedAt = transaction.created_at;

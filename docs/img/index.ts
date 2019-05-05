@@ -15,4 +15,4 @@ export const Visa = require('./cards/visa.svg');
 export const More = require('./nav_icons/more.svg');
 export const Send = require('./nav_icons/send.svg');
 export const SearchIcon = require('./search_icon.svg');
-
+export const Add = require('./add.svg');

@@ -1,18 +1,24 @@
 import * as React from 'react';
 import Card, { CardItem, CardList } from '../Card';
-import Slider from 'react-slick';
+import NewCard from '../Card/NewCard';
+
+import Carousel from 'nuka-carousel';
 
 interface IProps {
-  infinite: true | false;
+  infinite: boolean;
+  needNewCard?: boolean;
+
   onChangeCard(currentCard: CardItem): void;
 }
 
 interface TemplateState {
   activeIndex: number;
-  activeCardId: number;
+  activeCardId: number | string;
   cards: CardList;
-  infinite: true | false;
-  onChangeCard(currentCard: CardItem): void;
+  infinite: boolean;
+  needNewCard?: boolean;
+
+  onChangeCard(currentCard: CardItem | undefined): void;
 }
 
 const cardsList: CardList = [
@@ -91,7 +97,7 @@ const cardsList: CardList = [
 ];
 
 class CardSlider extends React.Component<IProps, TemplateState> {
-  constructor(props: any) {
+  constructor(props: IProps) {
     super(props);
 
     this.state = {
@@ -99,7 +105,8 @@ class CardSlider extends React.Component<IProps, TemplateState> {
       activeCardId: cardsList[0].id,
       cards: cardsList,
       onChangeCard: this.props.onChangeCard,
-      infinite: this.props.infinite
+      infinite: this.props.infinite,
+      needNewCard: this.props.needNewCard || false
     };
 
     this.state.onChangeCard(cardsList[0]);
@@ -108,42 +115,60 @@ class CardSlider extends React.Component<IProps, TemplateState> {
   private handleSelect(_current: number, next: number): void {
     const { cards, onChangeCard } = this.state;
     let card: CardItem = cards[next];
+    let id;
+
+    card ? (id = card.id) : (id = 'newCard');
+
     onChangeCard(card);
 
-    this.setState({ activeIndex: next, activeCardId: card.id });
+    this.setState({ activeIndex: next, activeCardId: id });
   }
+
+  // private handleClick(index: number, card: CardItem) {
+  //   this.setState({activeIndex: index as number, activeCardId: card.id});
+  // }
 
   private calcSlidesToShowCount = (): number => {
-    return Math.floor((window.innerWidth - 110) / 348);
+    return Math.floor((window.innerWidth - 110) / 250);
   }
 
-  private calcPaddingBetweenSlides = (): string => {
-    return this.calcSlidesToShowCount() <= 3 ? '60px' : '0px';
+  private calcPaddingBetweenSlides = (): number => {
+    return this.calcSlidesToShowCount() <= 3 ? 60 : 0;
   }
 
   render() {
-    let settings = {
-      arrows: false,
-      infinite: this.state.infinite,
-      speed: 1000,
-      slidesToShow: this.calcSlidesToShowCount(),
-      slidesToScroll: 1,
-      centerMode: true,
-      className: 'center',
-      // adaptiveHeight: true,
-      centerPadding: this.calcPaddingBetweenSlides(),
-      focusOnSelect: true,
-      beforeChange: (current: number, next: number) => {
-        this.handleSelect(current, next);
-      }
-    };
-
     return (
-      <Slider {...settings}>
+      <Carousel
+        slideIndex={this.state.activeIndex}
+        speed={1000}
+        transitionMode={'scroll'}
+        slidesToShow={3}
+        // cellSpacing={20}
+        wrapAround={true}
+        dragging
+        swiping
+        cellAlign={'center'}
+        enableKeyboardControls={true}
+        autoplay
+        autoplayInterval={2000}
+        pauseOnHover
+        withoutControls
+        beforeSlide={(current: number, next: number) => {
+          this.handleSelect(current, next);
+        }}
+      >
         {this.state.cards.map((card: CardItem) => (
-          <Card key={card.id} data={card} active={this.state.activeCardId === card.id} />
+          <Card
+            key={card.id}
+            active={this.state.activeCardId === card.id}
+            // onClick={(e: any) => this.handleClick(index as number, card)}
+            data={card}
+          />
         ))}
-      </Slider>
+        {this.state.needNewCard && (
+          <NewCard key={'newCard'} active={this.state.activeCardId === 'newCard'} />
+        )}
+      </Carousel>
     );
   }
 }

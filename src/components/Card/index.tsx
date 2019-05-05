@@ -78,6 +78,7 @@ class Card extends React.Component<IProps, IState> {
     }
   }
 
+  // onClick={(e: any) => this.state.onClick && this.state.onClick(e)}
   render() {
     return (
       <div className={this.getCardStyle()}>

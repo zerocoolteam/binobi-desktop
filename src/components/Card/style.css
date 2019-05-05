@@ -1,6 +1,4 @@
 .background {
-  width: 348px;
-  height: 206px;
   opacity: 0.4;
   background: linear-gradient(121.02deg, #8676fb 0%, #ab7bff 100%);
   border-radius: 6px;
@@ -8,9 +6,41 @@
   transition: transform 1.05s ease-in-out;
 }
 
+.card {
+  width: 348px;
+  height: 206px;
+}
 .card div {
   margin-left: 0 !important;
   margin-right: 0 !important;
+}
+.card.newCard {
+  margin: 32px auto 55px;
+  background: #f9fafb;
+  /* gray light */
+  border: 2px dashed #d6d9e4;
+  box-sizing: border-box;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 70px;
+}
+.card.newCard.card-active {
+  transform: scale(1.2);
+  transition: transform 1.05s ease-in-out;
+  box-shadow: none;
+}
+.card.newCard span {
+  font-family: Sarabun;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  /* or 137% */
+  text-align: center;
+  letter-spacing: 0.2px;
+  color: #a0a4b0;
 }
 
 .card.card-active {
