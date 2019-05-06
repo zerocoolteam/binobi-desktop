@@ -140,7 +140,7 @@ class CardSlider extends React.Component<IProps, TemplateState> {
     return (
       <Carousel
         slideIndex={this.state.activeIndex}
-        speed={1000}
+        speed={2000}
         transitionMode={'scroll'}
         slidesToShow={3}
         // cellSpacing={20}

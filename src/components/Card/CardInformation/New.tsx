@@ -11,15 +11,20 @@ class New extends React.Component {
 
   render(): React.ReactNode {
     return (
-      <div className={styles.newContainer}>
+      <div className={styles.formContainer}>
         <span className={styles.cardInfoTitle}>Card information</span>
 
         <NewCardForm
           url="http://localhost:3000"
-          formStyles={styles.newForm}
+          // formStyles={styles.newForm}
           render={() => (
             <div>
-              <Input id="cardNumber" placeholder="Card number" fieldStyle={styles.input} />
+              <Input
+                id="cardNumber"
+                placeholder="Card number"
+                label="Credit card number"
+                fieldStyle={styles.input}
+              />
               <Input id="cardHolder" placeholder="Card holder" fieldStyle={styles.input} />
               <Input id="expiredAT" placeholder="Exp. Date" fieldStyle={styles.input} />
               <Input id="cvv" placeholder="CVV" fieldStyle={styles.input} />

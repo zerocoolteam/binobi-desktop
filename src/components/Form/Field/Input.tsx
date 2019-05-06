@@ -32,7 +32,6 @@ const Input: React.SFC<IFieldProps> = ({
 }) => {
   return (
     <div className={fieldStyle}>
-      {label && <label htmlFor={id}>{label}</label>}
       <input
         id={id}
         type="text"
@@ -40,8 +39,9 @@ const Input: React.SFC<IFieldProps> = ({
         placeholder={placeholder}
         onChange={onChange}
         onBlur={onBlur}
-        className="form-control"
+        // className="form-control"
       />
+      {(label || placeholder) && <label htmlFor={id}>{label || placeholder}</label>}
       {/* TODO - display validation error */}
     </div>
   );
