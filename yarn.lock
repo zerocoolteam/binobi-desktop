@@ -70,6 +70,10 @@
   version "2.2.7"
   resolved "https://registry.yarnpkg.com/@types/classnames/-/classnames-2.2.7.tgz#fb68cc9be8487e6ea5b13700e759bfbab7e0fefd"
 
+"@types/credit-card-type@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@types/credit-card-type/-/credit-card-type-7.0.0.tgz#d484dae9c4c27fb7da73efb9880d936a680ab9c2"
+
 "@types/electron-devtools-installer@^2.0.2":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@types/electron-devtools-installer/-/electron-devtools-installer-2.2.0.tgz#32ee4ebbe99b3daf9847a6d2097dc00b5de94f10"
@@ -1753,6 +1757,10 @@ create-react-context@^0.2.1, create-react-context@^0.2.2:
   dependencies:
     fbjs "^0.8.0"
     gud "^1.0.0"
+
+credit-card-type@^8.2.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/credit-card-type/-/credit-card-type-8.2.0.tgz#507a43b257f0f3b8bd4d4b339a419741fc7e6236"
 
 cross-env@^5.1.3:
   version "5.2.0"

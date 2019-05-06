@@ -1,7 +1,8 @@
 import * as React from 'react';
+import * as styles from '../style.css';
+import classNames from 'classnames';
 
 import { IErrors } from '..';
-import { FormEvent } from 'react';
 
 export interface IFieldProps {
   /* The unique field name */
@@ -16,7 +17,7 @@ export interface IFieldProps {
 
   fieldStyle?: string;
 
-  onChange?: (e: FormEvent<HTMLInputElement>) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 
   onBlur?: (e: React.FormEvent<HTMLInputElement>) => void;
 }
@@ -31,7 +32,7 @@ const Input: React.SFC<IFieldProps> = ({
   fieldStyle
 }) => {
   return (
-    <div className={fieldStyle}>
+    <div className={classNames(fieldStyle, styles.input)}>
       <input
         id={id}
         type="text"

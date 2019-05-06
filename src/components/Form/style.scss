@@ -1,0 +1,148 @@
+.form-container {
+  width: 730px;
+  padding-bottom: 32px;
+
+  //form {
+  //  padding-top: 20px;
+  //}
+
+  .input {
+    display: flex;
+    flex-flow: column-reverse;
+
+    label,
+    input {
+      padding-left: 20px;
+      transition: all 0.2s;
+      touch-action: manipulation;
+    }
+
+    label {
+      //margin-bottom: 0;
+      font-family: Sarabun;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 22px; /* or 137% */
+      letter-spacing: 0.2px;
+
+      color: #a6aab4;
+      z-index: 2;
+    }
+
+    input {
+      -webkit-appearance: none;
+      //padding: 0;
+      border: 0.5px solid #a6aab4;
+      box-sizing: border-box;
+      border-radius: 6px;
+
+      font-family: Sarabun;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 22px; /* or 137% */
+      letter-spacing: 0.2px;
+
+      //color: #a6aab4;
+      background: #f8f9fa;
+      height: 56px;
+
+      &:focus {
+        outline: 0;
+        background: #ffffff;
+        border: 1px solid #613eea;
+        border-radius: 6px;
+
+        font-weight: normal;
+        line-height: 24px; /* identical to box height, or 150% */
+
+        color: #171d33;
+      }
+    }
+
+    input:placeholder-shown + label {
+      //max-width: 66.66%;
+      cursor: text;
+      //white-space: nowrap;
+      overflow: hidden;
+      //text-overflow: ellipsis;
+      //transform-origin: left bottom;
+      transform: translate(0, 3rem);
+
+      z-index: 3;
+    }
+
+    input:not(:placeholder-shown) + label,
+    input:focus + label {
+      transform: translate(0, 0);
+      cursor: pointer;
+
+      //background-clip: padding-box;
+
+      font-size: 12px;
+      line-height: 10px; /* identical to box height, or 150% */
+
+      color: #613eea;
+
+      width: max-content;
+      padding-top: 20px;
+      padding-left: 5px;
+      padding-right: 5px;
+      margin-left: 20px;
+      margin-bottom: -5px;
+
+      z-index: 3;
+      background: #ffffff;
+
+      background-clip: content-box;
+    }
+
+    ::-webkit-input-placeholder {
+      opacity: 0;
+      transition: inherit;
+    }
+
+    input:focus::-webkit-input-placeholder {
+      opacity: 1;
+
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 24px; /* identical to box height, or 150% */
+      letter-spacing: 0.2px;
+
+      color: #171d33;
+    }
+  }
+
+  .submit-new-card {
+    margin-top: 20px;
+
+    font-family: Sarabun;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px; /* or 150% */
+    letter-spacing: 0.1px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+
+    background: #e8e2fc;
+    border-radius: 6px;
+    border: none;
+
+    height: 56px;
+    width: 100%;
+
+    &.active {
+      background: #613eea;
+      /* purple button shadow */
+      box-shadow: 0px 8px 20px rgba(97, 62, 234, 0.32);
+      border-radius: 6px;
+    }
+  }
+}

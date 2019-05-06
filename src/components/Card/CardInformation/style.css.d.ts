@@ -8,7 +8,3 @@ export const income: string;
 export const out: string;
 export const cardInfoRow: string;
 export const cardInfoTitle: string;
-export const formContainer: string;
-export const input: string;
-export const submitNewCard: string;
-export const active: string;
