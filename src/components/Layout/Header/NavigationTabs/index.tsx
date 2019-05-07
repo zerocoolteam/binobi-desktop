@@ -27,6 +27,7 @@ class NavigationTabs extends React.Component<Props, State> {
             </NavLink>
           </div>
 
+          {/* TODO: add circle background */}
           <div className={styles.sendMoney}>
             <img src={Send} />
           </div>

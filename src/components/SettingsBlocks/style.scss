@@ -1,0 +1,103 @@
+.block-container {
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+
+  a {
+    text-decoration: none;
+    transition: all 0.45s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+      transition: transform 0.45s ease-in-out;
+      text-decoration: none;
+    }
+  }
+
+  .go-settings {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      margin-left: 10px;
+
+      font-family: Sarabun;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px; /* identical to box height, or 143% */
+      letter-spacing: 0.2px;
+
+      color: #613eea;
+    }
+  }
+
+  h1.block-title {
+    margin-top: 12px;
+
+    font-family: Sarabun;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    //line-height: 42px;/* identical to box height, or 131% */
+    text-align: center;
+    letter-spacing: 0.5px;
+
+    color: #171d33;
+  }
+
+  .small-block-title {
+    font-family: Sarabun;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    //line-height: 18px;/* identical to box height, or 150% */
+    letter-spacing: 0.2px;
+
+    color: #757f8c;
+  }
+
+  .password-charts-type-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 24px 28px 162px;
+
+    .password-charts-type-block {
+      width: 114px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      flex-flow: column;
+
+      span {
+        font-family: Sarabun;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 28px;
+        //text-align: center;
+        letter-spacing: 0.2px;
+
+        &:first-child {
+          font-weight: normal;
+          font-size: 28px;
+          //line-height: 36px;/* identical to box height, or 129% */
+          //text-align: center;
+
+          color: #d6d9e4;
+        }
+
+        &:last-child {
+          font-weight: 500;
+          font-size: 12px;
+          //line-height: 18px;/* identical to box height, or 150% */
+          //text-align: center;
+
+          color: #d6d9e4;
+        }
+      }
+    }
+  }
+}

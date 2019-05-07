@@ -1,10 +1,16 @@
 import * as React from 'react';
+import { SubmitButton } from './Field';
+import * as styles from './style.css';
+import classNames from 'classnames';
+
+export { Input, SearchInput, SubmitButton, SubmitSearchButton, NotificationInput } from './Field';
 
 interface IFormProps {
-  url: string;
+  // url: string;
   submitButton?: boolean;
   formStyles?: string;
-  render: () => React.ReactNode;
+  // render: () => React.ReactNode;
+  // renderFields: () => React.ReactNode;
 }
 
 export interface IValues {
@@ -16,11 +22,13 @@ export interface IErrors {
 }
 
 export interface IFormState {
+  url?: string;
   values: IValues;
   errors: IErrors;
   formStyles?: string;
   submitButton?: boolean;
   submitSuccess?: boolean;
+  submitButtonText?: string;
 }
 
 class Form extends React.Component<IFormProps, IFormState> {
@@ -66,36 +74,41 @@ class Form extends React.Component<IFormProps, IFormState> {
     return true;
   }
 
+  protected renderFields(): React.ReactNode {
+    return;
+  }
+
   public render() {
-    const { submitSuccess, errors, submitButton, formStyles } = this.state;
+    const { submitSuccess, errors, submitButton, formStyles, submitButtonText } = this.state;
     return (
-      <form onSubmit={this.handleSubmit} noValidate={true} className={formStyles}>
-        {this.props.render()}
+      <div className={styles.formContainer}>
+        <form onSubmit={this.handleSubmit} noValidate={true} className={formStyles}>
+          {this.renderFields()}
 
-        {submitButton && (
-          <div className="form-group">
-            <button type="submit" className="btn btn-primary" disabled={this.haveErrors(errors)}>
-              Submit
-            </button>
-          </div>
-        )}
+          {submitButton && (
+            <SubmitButton
+              styles={classNames(styles.submitFormButton)}
+              text={submitButtonText as string}
+            />
+          )}
 
-        {submitSuccess && (
-          <div className="alert alert-info" role="alert">
-            The form was successfully submitted!
-          </div>
-        )}
-        {submitSuccess === false && !this.haveErrors(errors) && (
-          <div className="alert alert-danger" role="alert">
-            Sorry, an unexpected error has occurred
-          </div>
-        )}
-        {submitSuccess === false && this.haveErrors(errors) && (
-          <div className="alert alert-danger" role="alert">
-            Sorry, the form is invalid. Please review, adjust and try again
-          </div>
-        )}
-      </form>
+          {submitSuccess && (
+            <div className="alert alert-info" role="alert">
+              The form was successfully submitted!
+            </div>
+          )}
+          {submitSuccess === false && !this.haveErrors(errors) && (
+            <div className="alert alert-danger" role="alert">
+              Sorry, an unexpected error has occurred
+            </div>
+          )}
+          {submitSuccess === false && this.haveErrors(errors) && (
+            <div className="alert alert-danger" role="alert">
+              Sorry, the form is invalid. Please review, adjust and try again
+            </div>
+          )}
+        </form>
+      </div>
     );
   }
 }

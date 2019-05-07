@@ -32,7 +32,7 @@ class Home extends React.Component<{}, { currentCard: CardItem }> {
 
   render() {
     const { currentCard } = this.state;
-
+    // TODO: fix not change children components after change current state
     return (
       <div>
         <Balance total={this.state.currentCard.balance} title="Your balance" />

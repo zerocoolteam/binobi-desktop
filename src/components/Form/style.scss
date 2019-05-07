@@ -115,7 +115,7 @@
     }
   }
 
-  .submit-new-card {
+  .submit-form-button {
     margin-top: 20px;
 
     font-family: Sarabun;
@@ -143,6 +143,10 @@
       /* purple button shadow */
       box-shadow: 0px 8px 20px rgba(97, 62, 234, 0.32);
       border-radius: 6px;
+    }
+
+    &.large-margin-top {
+      margin-top: 242px;
     }
   }
 }

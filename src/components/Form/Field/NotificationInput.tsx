@@ -1,29 +1,35 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import { IFieldProps } from './BaseField';
-
 import * as styles from '../style.css';
+import classNames from 'classnames';
+
+import { IFieldProps } from './BaseField';
 
 import { IErrors } from '..';
 
-export const Input: React.SFC<IFieldProps> = ({
+interface IRadio extends IFieldProps {
+  checked?: boolean;
+}
+
+export const NotificationInput: React.SFC<IRadio> = ({
   id,
   label,
   value,
   placeholder,
   onChange,
   onBlur,
-  fieldStyle
+  fieldStyle,
+  checked
 }) => {
   return (
-    <div className={classNames(fieldStyle, styles.input)}>
+    <div className={classNames(fieldStyle)}>
       <input
         id={id}
-        type="text"
+        type="radio"
         value={value}
         placeholder={placeholder}
         onChange={onChange}
         onBlur={onBlur}
+        checked={checked}
         // className="form-control"
       />
       {(label || placeholder) && <label htmlFor={id}>{label || placeholder}</label>}

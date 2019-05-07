@@ -2,9 +2,9 @@ import * as React from 'react';
 
 import { IErrors } from '..';
 
-import Field from './index';
+import BaseField from './BaseField';
 
-class SearchInput extends Field {
+export class SearchInput extends BaseField {
   render() {
     const { id, value, placeholder, fieldStyle } = this.state;
 
@@ -23,5 +23,3 @@ class SearchInput extends Field {
     );
   }
 }
-
-export default SearchInput;

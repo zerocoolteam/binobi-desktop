@@ -28,7 +28,7 @@ class Wallet extends React.Component<{}, { currentCard: CardItem }> {
     // this.setState({currentCard: currentCard})
     // console.log(this.state);
   }
-
+  // TODO: fix not change children components after change current state
   render() {
     return (
       <div>
@@ -40,6 +40,7 @@ class Wallet extends React.Component<{}, { currentCard: CardItem }> {
         />
         {/*this.state.currentCard*/}
         <CardInformation card={undefined} />
+        {/*<CardInformation card={this.state.currentCard} />*/}
       </div>
     );
   }
