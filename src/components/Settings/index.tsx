@@ -13,7 +13,7 @@ import {
   Notifications,
   Phone,
   Email
-} from '../../../docs/img';
+} from '../../assets/img';
 
 const Settings = () => {
   return (

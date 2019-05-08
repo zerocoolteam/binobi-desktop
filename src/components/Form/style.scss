@@ -144,9 +144,53 @@
       box-shadow: 0px 8px 20px rgba(97, 62, 234, 0.32);
       border-radius: 6px;
     }
+  }
 
-    &.large-margin-top {
-      margin-top: 242px;
+  .notification-radio-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    cursor: pointer;
+    background: #ffffff;
+    /* card shadow */
+    box-shadow: 0px 4px 26px rgba(0, 0, 0, 0.06);
+    border-radius: 6px;
+
+    height: 60px;
+
+    font-family: Sarabun;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px; /* identical to box height, or 143% */
+    letter-spacing: 0.2px;
+
+    color: #171d33;
+
+    &.checked {
+      background: #ff7d00;
+      border-radius: 6px;
+
+      color: #ffffff;
+
+      svg {
+        circle {
+          fill: #ff7d00;
+        }
+      }
+    }
+
+    input {
+      display: none;
+    }
+
+    svg {
+      margin-left: 10px;
+    }
+
+    span {
+      padding-left: 24px;
     }
   }
 }

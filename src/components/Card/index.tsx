@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { More, Visa } from '../../../docs/img';
+import { More, Visa } from '../../assets/img';
 
 import * as styles from './style.css';
 import * as cardStyles from './style.css';

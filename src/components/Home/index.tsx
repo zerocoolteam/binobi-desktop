@@ -26,8 +26,7 @@ class Home extends React.Component<{}, { currentCard: CardItem }> {
   }
 
   holdCurrentCard = (currentCard: CardItem) => {
-    this.state = { currentCard: currentCard };
-    console.log(this.state);
+    this.setState({ currentCard: currentCard });
   }
 
   render() {
@@ -38,11 +37,15 @@ class Home extends React.Component<{}, { currentCard: CardItem }> {
         <Balance total={this.state.currentCard.balance} title="Your balance" />
         <CardSlider
           infinite={true}
-          onChangeCard={(currentCard: CardItem) => this.holdCurrentCard(currentCard)}
+          onChangeCard={(current: CardItem) => this.holdCurrentCard(current)}
         />
         <Tabs>
-          <TransactionHistory position="left" type="send" forCardId={currentCard.id} />
-          <TransactionHistory position="right" type="receive" forCardId={currentCard.id} />
+          <TransactionHistory position="left" type="send" forCardId={this.state.currentCard.id} />
+          <TransactionHistory
+            position="right"
+            type="receive"
+            forCardId={this.state.currentCard.id}
+          />
         </Tabs>
       </div>
     );

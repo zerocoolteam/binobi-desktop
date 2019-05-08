@@ -39,8 +39,6 @@ export default class PasswordForm extends Form {
             this.renderChartTypeBlock(symbolPair[0], symbolPair[1])
           )}
         </div>
-
-        <SubmitButton styles={formStyles.submitFormButton} text={'Change password'} />
       </div>
     );
   }

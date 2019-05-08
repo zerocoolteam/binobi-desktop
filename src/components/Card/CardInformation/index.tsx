@@ -12,6 +12,7 @@ class CardInformation extends React.Component<ICardInformation, ICardInformation
   constructor(props: any) {
     super(props);
 
+    console.log(this.props.card);
     this.state = {
       card: this.props.card
     };

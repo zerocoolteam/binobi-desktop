@@ -1,14 +1,14 @@
 import * as React from 'react';
 import Form from '../../Form';
 import * as styles from '../style.css';
-import { Input, SubmitButton } from '../../Form/Field';
-import * as formStyles from '../../Form/style.css';
+import { Input } from '../../Form/Field';
 
 export default class ProfileForm extends Form {
   protected async submitForm(): Promise<boolean> {
     return true;
   }
 
+  // TODO: add photo upload functional
   protected renderFields(): React.ReactNode {
     return (
       <div>
@@ -24,8 +24,6 @@ export default class ProfileForm extends Form {
         <Input id="state" placeholder="State" />
         <Input id="city" placeholder="City" />
         <Input id="address" placeholder="Address" />
-
-        <SubmitButton styles={formStyles.submitFormButton} text={'Save changes'} />
       </div>
     );
   }

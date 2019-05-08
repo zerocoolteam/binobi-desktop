@@ -1,5 +1,5 @@
+export const formContainer: string;
 export const transactionHistoryContainer: string;
-export const form: string;
 export const searchForm: string;
 export const searchInput: string;
 export const generalDate: string;

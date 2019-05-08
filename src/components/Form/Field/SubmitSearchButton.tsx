@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { SearchIcon } from '../../../../docs/img';
+import { SearchIcon } from '../../../assets/img';
 
 export const SubmitSearchButton = () => {
   return (

@@ -23,7 +23,6 @@ export const PrivacyPolice = require('./settings/privacy_police.svg');
 export const TermsOfUs = require('./settings/terms_of_us.svg');
 export const Language = require('./settings/language.svg');
 
-
 // Other
 export const More = require('./nav_icons/more.svg');
 export const Send = require('./nav_icons/send.svg');

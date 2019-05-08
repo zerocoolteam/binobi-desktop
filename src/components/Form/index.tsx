@@ -3,14 +3,14 @@ import { SubmitButton } from './Field';
 import * as styles from './style.css';
 import classNames from 'classnames';
 
-export { Input, SearchInput, SubmitButton, SubmitSearchButton, NotificationInput } from './Field';
+export { Input, SearchInput, SubmitButton, SubmitSearchButton, BlockRadio } from './Field';
 
 interface IFormProps {
-  // url: string;
-  submitButton?: boolean;
   formStyles?: string;
-  // render: () => React.ReactNode;
-  // renderFields: () => React.ReactNode;
+  submitButton?: boolean;
+  submitButtonText?: string;
+  checkedRadioId?: string;
+  submitFormButtonStyles?: string;
 }
 
 export interface IValues {
@@ -29,6 +29,8 @@ export interface IFormState {
   submitButton?: boolean;
   submitSuccess?: boolean;
   submitButtonText?: string;
+  checkedRadioId?: string;
+  submitFormButtonStyles?: string;
 }
 
 class Form extends React.Component<IFormProps, IFormState> {
@@ -39,6 +41,8 @@ class Form extends React.Component<IFormProps, IFormState> {
     const values: IValues = {};
     this.state = {
       submitButton: this.props.submitButton,
+      submitButtonText: this.props.submitButtonText,
+      submitFormButtonStyles: this.props.submitFormButtonStyles,
       formStyles: this.props.formStyles,
       errors,
       values
@@ -79,15 +83,22 @@ class Form extends React.Component<IFormProps, IFormState> {
   }
 
   public render() {
-    const { submitSuccess, errors, submitButton, formStyles, submitButtonText } = this.state;
+    const {
+      submitSuccess,
+      errors,
+      submitButton,
+      formStyles,
+      submitButtonText,
+      submitFormButtonStyles
+    } = this.state;
     return (
-      <div className={styles.formContainer}>
-        <form onSubmit={this.handleSubmit} noValidate={true} className={formStyles}>
+      <div className={classNames(styles.formContainer, formStyles)}>
+        <form onSubmit={this.handleSubmit} noValidate={true}>
           {this.renderFields()}
 
           {submitButton && (
             <SubmitButton
-              styles={classNames(styles.submitFormButton)}
+              styles={classNames(styles.submitFormButton, submitFormButtonStyles)}
               text={submitButtonText as string}
             />
           )}

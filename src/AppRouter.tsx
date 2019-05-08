@@ -4,7 +4,7 @@ import Home from './components/Home';
 import Wallet from './components/Wallet';
 import Reports from './components/Reports';
 import Settings from './components/Settings';
-import { Profile, Password, Email, Phone, Notifications } from './components/SettingsBlocks';
+import SettingBlock from './components/SettingsBlocks';
 
 const AppRouter = () => {
   return (
@@ -13,11 +13,35 @@ const AppRouter = () => {
       <Route path="/wallets" component={Wallet} />
       <Route path="/reports" component={Reports} />
       <Route path="/settings" component={Settings} />
-      <Route path="/profile" component={Profile} />
-      <Route path="/password" component={Password} />
-      <Route path="/email" component={Email} />
-      <Route path="/phone" component={Phone} />
-      <Route path="/notifications" component={Notifications} />
+      <Route
+        path="/profile"
+        component={() => <SettingBlock title={'Profile'} block={'profile'} />}
+      />
+      <Route
+        path="/password"
+        component={() => <SettingBlock title={'Profile'} block={'password'} />}
+      />
+      <Route path="/email" component={() => <SettingBlock title={'Email'} block={'email'} />} />
+      <Route
+        path="/phone"
+        component={() => <SettingBlock title={'Phone number'} block={'phone'} />}
+      />
+      <Route
+        path="/notifications"
+        component={() => <SettingBlock title={'Notifications'} block={'notifications'} />}
+      />
+      <Route
+        path="/currency"
+        component={() => <SettingBlock title={'Currency'} block={'currency'} />}
+      />
+      <Route
+        path="/language"
+        component={() => <SettingBlock title={'Language'} block={'language'} />}
+      />
+      <Route
+        path="/account"
+        component={() => <SettingBlock title={'Account'} block={'account'} />}
+      />
     </Switch>
   );
 };

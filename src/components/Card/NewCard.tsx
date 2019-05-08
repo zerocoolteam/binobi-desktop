@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { Add } from '../../../docs/img';
+import { Add } from '../../assets/img';
 
 import * as styles from './style.css';
 

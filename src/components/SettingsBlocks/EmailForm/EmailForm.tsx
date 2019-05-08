@@ -18,11 +18,6 @@ export default class EmailForm extends Form {
         <Input id="email" placeholder="Email" />
         <Input id="newEmail" placeholder="New email" />
         <Input id="emailConfirmation" placeholder="Confirm new email" />
-
-        <SubmitButton
-          styles={classNames(formStyles.submitFormButton, formStyles.largeMarginTop)}
-          text={'Change email'}
-        />
       </div>
     );
   }

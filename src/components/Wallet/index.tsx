@@ -24,23 +24,19 @@ class Wallet extends React.Component<{}, { currentCard: CardItem }> {
   }
 
   holdCurrentCard = (currentCard: CardItem) => {
-    this.state = { currentCard: currentCard };
-    // this.setState({currentCard: currentCard})
-    // console.log(this.state);
+    this.setState({ currentCard: currentCard });
   }
   // TODO: fix not change children components after change current state
   render() {
     return (
       <div>
-        <Balance total={this.state.currentCard.balance} title="My wallet’s total balance" />
+        <Balance total={1236.4} title="My wallet’s total balance" />
         <CardSlider
           infinite={false}
           needNewCard={true}
           onChangeCard={(currentCard: CardItem) => this.holdCurrentCard(currentCard)}
         />
-        {/*this.state.currentCard*/}
-        <CardInformation card={undefined} />
-        {/*<CardInformation card={this.state.currentCard} />*/}
+        <CardInformation card={this.state.currentCard} />
       </div>
     );
   }

@@ -4,3 +4,6 @@ export const blockTitle: string;
 export const smallBlockTitle: string;
 export const passwordChartsTypeRow: string;
 export const passwordChartsTypeBlock: string;
+export const notificationContainer: string;
+export const notificationBlock: string;
+export const largeMarginTop: string;

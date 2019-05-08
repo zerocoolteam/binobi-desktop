@@ -100,4 +100,26 @@
       }
     }
   }
+
+  .notification-container {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: column;
+
+    span.small-block-title {
+      margin: 20px 0;
+    }
+
+    .notification-block {
+      margin-top: 16px;
+
+      &:last-child {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .large-margin-top {
+    margin-top: 242px;
+  }
 }

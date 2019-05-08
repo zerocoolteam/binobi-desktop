@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Home, Wallets, Settings, Reports, Send } from '../../../../../docs/img';
+import { Home, Wallets, Settings, Reports, Send } from '../../../../assets/img';
 
 import * as styles from '../style.css';
 

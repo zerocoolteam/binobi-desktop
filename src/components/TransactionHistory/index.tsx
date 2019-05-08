@@ -132,7 +132,7 @@ class TransactionHistory extends React.Component<IProps, IState> {
 
     return (
       <div className={styles.transactionHistoryContainer}>
-        <SearchForm />
+        <SearchForm formStyles={styles.formContainer} />
 
         {this.state.transactions.map((transaction: TransactionItem) => {
           // console.log(this.state.forCardId);
