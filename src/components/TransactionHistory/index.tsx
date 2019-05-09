@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Transaction, { TransactionItem, TransactionList } from './Transaction';
-import SearchForm from './SearchForm';
+import SearchForm from '../Common/SearchForm';
 import * as styles from './style.css';
 import moment = require('moment');
 
@@ -132,7 +132,7 @@ class TransactionHistory extends React.Component<IProps, IState> {
 
     return (
       <div className={styles.transactionHistoryContainer}>
-        <SearchForm formStyles={styles.formContainer} />
+        <SearchForm formStyles={styles.formContainer} submitButtonText={'Search transaction'} />
 
         {this.state.transactions.map((transaction: TransactionItem) => {
           // console.log(this.state.forCardId);

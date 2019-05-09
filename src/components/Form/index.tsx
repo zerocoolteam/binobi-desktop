@@ -2,6 +2,7 @@ import * as React from 'react';
 import { SubmitButton } from './Field';
 import * as styles from './style.css';
 import classNames from 'classnames';
+import { Handler } from '../../helpers/Icon/IconHandler';
 
 export { Input, SearchInput, SubmitButton, SubmitSearchButton, BlockRadio } from './Field';
 
@@ -11,6 +12,7 @@ interface IFormProps {
   submitButtonText?: string;
   checkedRadioId?: string;
   submitFormButtonStyles?: string;
+  iconHandler?: Handler;
 }
 
 export interface IValues {
@@ -31,6 +33,8 @@ export interface IFormState {
   submitButtonText?: string;
   checkedRadioId?: string;
   submitFormButtonStyles?: string;
+  iconHandler?: Handler;
+  [key: string]: any;
 }
 
 class Form extends React.Component<IFormProps, IFormState> {
@@ -40,10 +44,7 @@ class Form extends React.Component<IFormProps, IFormState> {
     const errors: IErrors = {};
     const values: IValues = {};
     this.state = {
-      submitButton: this.props.submitButton,
-      submitButtonText: this.props.submitButtonText,
-      submitFormButtonStyles: this.props.submitFormButtonStyles,
-      formStyles: this.props.formStyles,
+      ...this.props,
       errors,
       values
     };

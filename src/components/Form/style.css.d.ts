@@ -4,3 +4,6 @@ export const submitFormButton: string;
 export const active: string;
 export const notificationRadioContainer: string;
 export const checked: string;
+export const toggleInput: string;
+export const switcher: string;
+export const slider: string;

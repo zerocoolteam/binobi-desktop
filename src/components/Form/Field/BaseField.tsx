@@ -4,6 +4,7 @@ import { IErrors } from '..';
 
 export interface IFieldProps {
   id: string;
+  name?: string;
   label?: string;
   options?: string[];
   value?: any;

@@ -4,14 +4,16 @@ import * as styles from '../style.css';
 import { BlockRadio, RadioButton, RadioButtonList } from '../../Form/Field';
 import { Handler } from '../../../helpers/Icon/IconHandler';
 
-export default class NotificationsForm extends Form {
+export default class CurrencyForm extends Form {
   private readonly buttons: RadioButtonList<RadioButton> = [
-    { id: 'half-an-hour', label: '30 minutes' },
-    { id: 'hour', label: '1 hour' },
-    { id: 'two-hour', label: '2 hour' },
-    { id: 'four-hour', label: 'four-hour' },
-    { id: 'eight-hour', label: '8 hour' },
-    { id: 'custom', label: 'Custom' }
+    { id: 'USD', label: 'United States Dollar' },
+    { id: 'EU', label: 'Euro' },
+    { id: 'PS', label: 'Pound Sterling' },
+    { id: 'BR', label: 'Brazilian Real' },
+    { id: 'AD', label: 'Australian Dollar' },
+    { id: 'CD', label: 'Canadian Dollar' },
+    { id: 'JY', label: 'Japanese Yen' },
+    { id: 'CY', label: 'Chinese Yuan' }
   ];
 
   constructor(props: any) {
@@ -35,8 +37,6 @@ export default class NotificationsForm extends Form {
   protected renderFields(): React.ReactNode {
     return (
       <div className={styles.formContainer}>
-        <span className={styles.smallBlockTitle}>Snooze notifications</span>
-
         {this.buttons.map(({ id, label }) => (
           <BlockRadio
             key={id}
@@ -46,12 +46,9 @@ export default class NotificationsForm extends Form {
             onChange={this.handleChange}
             label={label}
             fieldStyle={styles.notificationBlock}
+            checkedClass={styles.checked}
             iconHandler={(id: string, isActive: boolean) =>
-              (this.state.iconHandler as Handler).handle({
-                type: 'clock',
-                isActive: isActive,
-                value: id
-              })
+              (this.state.iconHandler as Handler).handle({type: 'currency', isActive: isActive, value: id})
             }
           />
         ))}

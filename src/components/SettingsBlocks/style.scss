@@ -101,7 +101,7 @@
     }
   }
 
-  .notification-container {
+  .form-container {
     display: flex;
     justify-content: space-between;
     flex-flow: column;
@@ -116,10 +116,112 @@
       &:last-child {
         margin-bottom: 20px;
       }
+
+      &.checked {
+        background: #10c971;
+        border-radius: 6px;
+
+        color: #ffffff;
+
+        svg {
+          circle {
+            fill: #ffffff;
+            stroke: #10c971;
+          }
+        }
+      }
+
+      &.language-checked {
+        border: 1px solid #613eea;
+        box-sizing: border-box;
+        border-radius: 6px;
+      }
     }
   }
 
   .large-margin-top {
     margin-top: 242px;
+  }
+
+  .no-padding-bottom {
+    padding-bottom: 0;
+    margin-bottom: 8px;
+    margin-top: 4px;
+  }
+
+  .account-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    //height: 72px;
+    width: 730px;
+
+    background: #ffffff;
+    /* card shadow */
+    box-shadow: 0px 4px 26px rgba(0, 0, 0, 0.06);
+    border-radius: 6px;
+
+    margin-top: 12px;
+    margin-bottom: 32px;
+
+    .account-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+
+      span {
+        font-family: Sarabun;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 20px; /* identical to box height, or 143% */
+        letter-spacing: 0.2px;
+
+        color: #171d33;
+
+        padding-right: 16px;
+      }
+
+      &:not(:last-child) {
+        width: 95.618%;
+        border-bottom: 1px solid #f0f1f4;
+      }
+
+      &:last-child {
+        width: 95.618%;
+      }
+    }
+  }
+
+  .submit-form-button {
+    margin-top: 20px;
+
+    font-family: Sarabun;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px; /* or 150% */
+    letter-spacing: 0.1px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+
+    background: #e8e2fc;
+    border-radius: 6px;
+    border: none;
+
+    height: 56px;
+    width: 100%;
+
+    &.active-button {
+      background: #613eea;
+      /* purple button shadow */
+      box-shadow: 0px 8px 20px rgba(97, 62, 234, 0.32);
+      border-radius: 6px;
+    }
   }
 }

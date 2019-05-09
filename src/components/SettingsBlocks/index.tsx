@@ -3,20 +3,35 @@ import { Link } from 'react-router-dom';
 
 import ProfileForm from './ProfileForm';
 import PhoneForm from './PhoneForm';
-import EmailForm from './EmailForm/EmailForm';
+import EmailForm from './EmailForm';
 import PasswordForm from './PasswordForm';
 import NotificationsForm from './NotificationsForm';
-import CurrencyForm from './CurrencyForm/CurrencyForm';
+import CurrencyForm from './CurrencyForm';
+import SearchForm from '../Common/SearchForm';
+import { Handler } from '../../helpers/Icon/IconHandler';
 
 import { LeftArrow } from '../../assets/img';
 import * as styles from './style.css';
+import LanguageForm from './LanguageForm';
+import AccountForm from './AccountForm';
 
 interface ISettingsBlock {
   title: string;
   block: string;
+  search?: boolean;
+  inputLabel?: string;
+  smallTitle?: string;
+  iconHandler?: Handler;
 }
 
-const SettingsBlock = ({ title, block }: ISettingsBlock) => {
+const SettingsBlock = ({
+  title,
+  smallTitle,
+  search,
+  inputLabel,
+  block,
+  iconHandler
+}: ISettingsBlock) => {
   const getBlock = () => {
     switch (block) {
       case 'profile':
@@ -46,9 +61,27 @@ const SettingsBlock = ({ title, block }: ISettingsBlock) => {
           />
         );
       case 'notifications':
-        return <NotificationsForm submitButton submitButtonText={'Apply'} />;
+        return (
+          <NotificationsForm submitButton submitButtonText={'Apply'} iconHandler={iconHandler} />
+        );
       case 'currency':
-        return <CurrencyForm submitButton submitButtonText={'Change currency'} />;
+        return (
+          <CurrencyForm
+            submitButton
+            submitButtonText={'Change currency'}
+            iconHandler={iconHandler}
+          />
+        );
+      case 'language':
+        return (
+          <LanguageForm
+            submitButton
+            submitButtonText={'Change language'}
+            iconHandler={iconHandler}
+          />
+        );
+      case 'account':
+        return <AccountForm />;
     }
   };
 
@@ -63,7 +96,13 @@ const SettingsBlock = ({ title, block }: ISettingsBlock) => {
 
       <h1 className={styles.blockTitle}>{title}</h1>
 
-      {getBlock()}
+      <div className={styles.formContainer}>
+        {smallTitle && <span className={styles.smallBlockTitle}>{smallTitle}</span>}
+
+        {search && <SearchForm submitButtonText={inputLabel} formStyles={styles.noPaddingBottom} />}
+
+        {getBlock()}
+      </div>
     </div>
   );
 };

@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { IFieldProps } from './BaseField';
 
 import { IErrors } from '..';
-import IconClock from '../../../helpers/IconClock';
 
 export type RadioButton = {
   id: string;
@@ -19,7 +18,8 @@ export type RadioButtonList<Type> = {
 
 interface IRadio extends IFieldProps {
   isChecked: boolean;
-  selectIcon?(id: string, isActive: boolean): any;
+  checkedClass?: string;
+  iconHandler?(id: string, isActive: boolean): any;
 }
 
 export const BlockRadio: React.SFC<IRadio> = ({
@@ -30,13 +30,14 @@ export const BlockRadio: React.SFC<IRadio> = ({
   onBlur,
   fieldStyle,
   isChecked,
-  selectIcon
+  checkedClass,
+  iconHandler
 }) => {
   return (
     <label
       className={classNames(
         styles.notificationRadioContainer,
-        { [`${styles.checked}`]: isChecked },
+        { [`${checkedClass || styles.checked}`]: isChecked },
         fieldStyle
       )}
     >
@@ -49,7 +50,7 @@ export const BlockRadio: React.SFC<IRadio> = ({
         checked={isChecked}
       />
 
-      {selectIcon && selectIcon(id, isChecked)}
+      {iconHandler && iconHandler(id, isChecked)}
 
       {label && <span>{label}</span>}
       {/* TODO - display validation error */}

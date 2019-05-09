@@ -2,16 +2,18 @@ import * as React from 'react';
 import Form from '../../Form';
 import * as styles from '../style.css';
 import { BlockRadio, RadioButton, RadioButtonList } from '../../Form/Field';
-import SearchForm from '../../TransactionHistory/SearchForm';
+import { Handler } from '../../../helpers/Icon/IconHandler';
 
-export default class CurrencyForm extends Form {
+export default class LanguageForm extends Form {
   private readonly buttons: RadioButtonList<RadioButton> = [
-    { id: 'half-an-hour', label: '30 minutes' },
-    { id: 'hour', label: '1 hour' },
-    { id: 'two-hour', label: '2 hour' },
-    { id: 'four-hour', label: 'four-hour' },
-    { id: 'eight-hour', label: '8 hour' },
-    { id: 'custom', label: 'Custom' }
+    { id: 'USA', label: 'American English' },
+    { id: 'UK', label: 'British English' },
+    { id: 'FR', label: 'French' },
+    { id: 'GR', label: 'Deutsch' },
+    { id: 'SP', label: 'Spanish' },
+    { id: 'CH', label: 'Chinese' },
+    { id: 'JP', label: 'Japanese' },
+    { id: 'BR', label: 'Brazilian' }
   ];
 
   constructor(props: any) {
@@ -34,11 +36,7 @@ export default class CurrencyForm extends Form {
 
   protected renderFields(): React.ReactNode {
     return (
-      <div className={styles.notificationContainer}>
-        <span className={styles.smallBlockTitle}>Change local currency</span>
-
-        <SearchForm />
-
+      <div className={styles.formContainer}>
         {this.buttons.map(({ id, label }) => (
           <BlockRadio
             key={id}
@@ -48,6 +46,14 @@ export default class CurrencyForm extends Form {
             onChange={this.handleChange}
             label={label}
             fieldStyle={styles.notificationBlock}
+            checkedClass={styles.languageChecked}
+            iconHandler={(id: string, isActive: boolean) =>
+              (this.state.iconHandler as Handler).handle({
+                type: 'language',
+                isActive: isActive,
+                value: id
+              })
+            }
           />
         ))}
       </div>

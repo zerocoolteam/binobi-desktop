@@ -12,7 +12,7 @@ export default class SearchForm extends Form {
     return (
       <div className={styles.searchForm}>
         <SubmitSearchButton />
-        <SearchInput id="search" placeholder="Search transaction" fieldStyle={styles.searchInput} />
+        <SearchInput id="search" placeholder={this.state.submitButtonText} fieldStyle={styles.searchInput} />
       </div>
     );
   }
