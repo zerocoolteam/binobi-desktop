@@ -6,6 +6,7 @@ import * as styles from './style.css';
 import classNames = require('classnames');
 
 interface IProps {
+  middleElement?: ReactElement | React.ReactNode;
   children: ReactElement[];
 }
 
@@ -65,8 +66,14 @@ class Tabs extends React.Component<IProps, IState> {
             );
           })}
         </div>
+
         <div className={this.getUnderscoreStyles()} />
+
         <div className={styles.tabContent}>
+          {this.props.middleElement && (
+            <div className={styles.middleElementContainer}>{this.props.middleElement}</div>
+          )}
+
           {this.props.children.map(child => {
             return child.props.type === this.state.activeTab ? child : undefined;
           })}

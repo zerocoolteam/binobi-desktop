@@ -1,3 +1,19 @@
+.middle-element-container {
+  width: inherit;
+
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+
+  > div {
+    padding-bottom: 0 !important;
+
+    input {
+      width: 100%;
+    }
+  }
+}
+
 .tabs {
   margin-top: 39px;
   background: #f8f9fa;

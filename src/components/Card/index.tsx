@@ -34,18 +34,18 @@ interface IState {
   holder_name: string;
   expired_at: string;
   type?: string;
+  // onClick(params: (event: any) => any): any;
 }
 
-interface IProps {
-  data: CardItem;
-  active: boolean;
+interface IProps extends CardItem {
+  // onClick(params: (event: any) => any): any;
 }
 
 class Card extends React.Component<IProps, IState> {
   constructor(props: any) {
     super(props);
 
-    this.state = this.props.data;
+    this.state = { ...this.props };
   }
 
   getCardStyle(): string {

@@ -6,7 +6,7 @@ import moment = require('moment');
 
 type TransactionHistoryType = {
   type: string;
-  forCardId: number;
+  forCardId?: number;
   position?: string;
 };
 
@@ -102,6 +102,7 @@ class TransactionHistory extends React.Component<IProps, IState> {
     };
   }
 
+  // TODO: change transaction created at view
   private parseCreatedAt = (createdAt: number) => {
     // moment().calendar(null, {
     //   sameDay: '[Today]',
@@ -132,8 +133,6 @@ class TransactionHistory extends React.Component<IProps, IState> {
 
     return (
       <div className={styles.transactionHistoryContainer}>
-        <SearchForm formStyles={styles.formContainer} submitButtonText={'Search transaction'} />
-
         {this.state.transactions.map((transaction: TransactionItem) => {
           // console.log(this.state.forCardId);
           if (transaction.card_id === this.state.forCardId) {

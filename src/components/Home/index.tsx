@@ -4,6 +4,7 @@ import Balance from '../Balance';
 import Tabs from '../Tabs';
 import TransactionHistory from '../TransactionHistory';
 import { CardItem } from '../Card';
+import SearchForm from '../Common/SearchForm';
 
 class Home extends React.Component<{}, { currentCard: CardItem }> {
   constructor(props: any) {
@@ -39,7 +40,7 @@ class Home extends React.Component<{}, { currentCard: CardItem }> {
           infinite={true}
           onChangeCard={(current: CardItem) => this.holdCurrentCard(current)}
         />
-        <Tabs>
+        <Tabs middleElement={<SearchForm submitButtonText={'Search transaction'} />}>
           <TransactionHistory position="left" type="send" forCardId={this.state.currentCard.id} />
           <TransactionHistory
             position="right"

@@ -124,9 +124,11 @@ class CardSlider extends React.Component<IProps, TemplateState> {
     this.setState({ activeIndex: next, activeCardId: id });
   }
 
-  // private handleClick(index: number, card: CardItem) {
-  //   this.setState({activeIndex: index as number, activeCardId: card.id});
-  // }
+  private handleClick(index: number, card: CardItem) {
+    this.state.onChangeCard(card);
+
+    this.setState({ activeIndex: index as number, activeCardId: card.id });
+  }
 
   private calcSlidesToShowCount = (): number => {
     return Math.floor((window.innerWidth - 110) / 250);
@@ -160,9 +162,9 @@ class CardSlider extends React.Component<IProps, TemplateState> {
         {this.state.cards.map((card: CardItem) => (
           <Card
             key={card.id}
+            {...card}
             active={this.state.activeCardId === card.id}
             // onClick={(e: any) => this.handleClick(index as number, card)}
-            data={card}
           />
         ))}
         {this.state.needNewCard && (

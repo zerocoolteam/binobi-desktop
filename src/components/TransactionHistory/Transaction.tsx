@@ -54,7 +54,7 @@ class Transaction extends React.Component<IProps, IState> {
           </div>
           <div className={styles.nameAndDate}>
             <div className={styles.name}>
-              <span>to </span>
+              {this.state.direction === 'out' && <span>to </span>}
               <span>{this.state.full_name}</span>
             </div>
             <div className={styles.date}>{this.parseCreatedAt()}</div>

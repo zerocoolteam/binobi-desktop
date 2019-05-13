@@ -1,3 +1,4 @@
+export const middleElementContainer: string;
 export const tabs: string;
 export const tabList: string;
 export const tabItem: string;

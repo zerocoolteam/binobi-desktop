@@ -1,0 +1,19 @@
+h1.title {
+  font-family: Sarabun;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 42px; /* identical to box height, or 131% */
+  text-align: center;
+  letter-spacing: 0.5px;
+
+  color: #171d33;
+  margin-top: 16px;
+}
+
+.charts-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+}
