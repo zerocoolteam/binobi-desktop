@@ -1,55 +1,65 @@
 import * as React from 'react';
-import { Chart } from 'react-google-charts';
-import {
-  GoogleChartControl,
-  GoogleChartWrapper,
-  GoogleViz,
-  ReactGoogleChartEvent,
-  ReactGoogleChartProps
-} from 'react-google-charts/dist/types';
-
+import { Chart, PieSeries, Title } from '@devexpress/dx-react-chart-material-ui';
+import { Animation, EventTracker, Palette, SelectionState } from '@devexpress/dx-react-chart';
 import * as styles from './style.css';
 
-export default class Donut extends React.Component<{}, { activeColumn: number }> {
-  public chartRef: any;
+// const compareTargets = (
+//   { series, point }, { series: targetSeries, point: targetPoint },
+// ) => series === targetSeries && point === targetPoint;
 
+export default class Donut extends React.Component<
+  {},
+  { data: { type: string; amount: number }[]; selection: any[] }
+> {
   constructor(props: any) {
     super(props);
 
-    this.chartRef = React.createRef();
-  }
-
-  render() {
-    // const handleSelect = this.handleSelect
-    const data = [['Type', 'Amount'], ['Spent', 1000], ['Receive', 4000]];
-    const options = {
-      backgroundColor: '#f8f9fa',
-      pieHole: 0.7,
-      is3D: false,
-      pieSliceTextStyle: {
-        color: 'black'
-      },
-      pieStartAngle: 140,
-      slices: {
-        0: { color: '#FA2E69' },
-        1: { color: '#10C971' }
-      },
-      legend: 'none'
+    this.state = {
+      data: [
+        {
+          type: 'Receive',
+          amount: 36
+        },
+        {
+          type: 'Spent',
+          amount: 51
+        }
+      ],
+      selection: []
     };
 
-    // const chartEvents = [
-    //   {
-    //     eventName: 'select',
-    //     callback({ chartWrapper }) {
-    //       this.props.handleSelect(chartWrapper.getChart().getSelection()[0].row);
-    //     }
-    //   } as ReactGoogleChartEvent
-    // ];
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick = (e: any) => {
+    console.log(e);
+  }
+
+  // handleClick = ({ targets, location, event }: {targets: any, location: any, event: any}) => {
+  //   console.log(location);
+  //   console.log(event);
+  //   console.log(targets);
+  //
+  //   const target = targets[0];
+  //   if (target) {
+  //     this.setState(({ selection }) => ({
+  //       selection: [target],
+  //     }));
+  //   }
+  // }
+
+  render() {
+    const { data, selection } = this.state;
 
     return (
-      <div ref={this.chartRef}>
-        <Chart chartType="PieChart" width="100%" height="400px" data={data} options={options} />
-        {/*chartEvents={chartEvents} />*/}
+      <div className={styles.donutChartContainer}>
+        <Chart data={data} width={270} height={270}>
+          <Palette scheme={['#10C971', '#FA2E69']} />
+          <PieSeries valueField="amount" argumentField="type" innerRadius={0.7} />
+          <EventTracker onClick={this.handleClick} />
+          <SelectionState selection={selection} />
+          <Animation />
+        </Chart>
       </div>
     );
   }

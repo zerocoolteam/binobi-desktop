@@ -1,2 +1,53 @@
 .column-charts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+
+  div {
+    //width: 730px;
+    //margin-bottom: 10px;
+  }
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .received {
+    height: 6px;
+    width: 16px;
+
+    background: #10c971;
+    border-radius: 3px;
+  }
+
+  .spent {
+    height: 6px;
+    width: 16px;
+
+    background: #fa2e69;
+    border-radius: 3px;
+  }
+}
+
+.column-chart-container {
+  opacity: 1;
+
+  rect {
+    width: 3px;
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.donut-chart-container {
+  margin-top: 54px;
+
+  opacity: 0.5;
 }

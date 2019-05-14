@@ -1,49 +1,114 @@
 import * as React from 'react';
-import { Chart } from 'react-google-charts';
-import { ReactGoogleChartEvent } from 'react-google-charts/dist/types';
+import {
+  Chart,
+  ArgumentAxis,
+  ValueAxis,
+  BarSeries,
+  Title,
+  Legend
+} from '@devexpress/dx-react-chart-material-ui';
+import { createStyles, withStyles } from '@material-ui/core/styles';
+import { Stack, Animation, EventTracker } from '@devexpress/dx-react-chart';
+import * as styles from './style.css';
 
-export default class Column extends React.Component {
-  render() {
+const legendStyles = () =>
+  createStyles({
+    root: {
+      display: 'flex',
+      margin: 'auto',
+      flexDirection: 'row'
+    }
+  });
+
+// const legendRootBase = ({ classes, ...restProps }) => (
+//   <Legend.Root {...restProps} className={classes.root} />
+// );
+// const Root = withStyles(legendStyles, { name: 'LegendRoot' })(legendRootBase);
+// const legendLabelStyles = () => ({
+//   label: {
+//     whiteSpace: 'nowrap',
+//   },
+// });
+// const legendLabelBase = ({ classes, ...restProps }) => (
+//   <Legend.Label className={classes.label} {...restProps} />
+// );
+// const Label = withStyles(legendLabelStyles, { name: 'LegendLabel' })(legendLabelBase);
+
+export default class Column extends React.Component<
+  {},
+  { data: { created_at: string; receive: number; spent: number }[] }
+> {
+  constructor(props: any) {
+    super(props);
+
     const data = [
-      ['Element', 'Receive', 'Sent'],
-      ['Mon', 1100, 560],
-      ['Tue', 710, 800],
-      ['Wed', 400, 1200],
-      ['Thu', 1100, 200],
-      ['Fri', 820, 150],
-      ['Sat', 990, 900],
-      ['Sun', 690, 480]
+      {
+        created_at: 'Mon',
+        receive: 36,
+        spent: 38
+      },
+      {
+        created_at: 'Tue',
+        receive: 51,
+        spent: 21
+      },
+      {
+        created_at: 'Wed',
+        receive: 23,
+        spent: 180
+      },
+      {
+        created_at: 'Thu',
+        receive: 200,
+        spent: 13
+      },
+      {
+        created_at: 'Fri',
+        receive: 144,
+        spent: 115
+      },
+      {
+        created_at: 'Sat',
+        receive: 16,
+        spent: 10
+      },
+      {
+        created_at: 'Sun',
+        receive: 126,
+        spent: 150
+      }
     ];
 
-    const chartEvents = [
-      {
-        eventName: 'select',
-        callback({ chartWrapper }) {
-          console.log('Selected ', chartWrapper.getChart().getSelection());
-        }
-      } as ReactGoogleChartEvent
-    ];
+    this.state = {
+      data: data
+    };
+  }
+
+  handleClick(e: any) {
+    console.log(e);
+  }
+
+  render() {
+    const { data } = this.state;
 
     return (
-      <div>
-        <Chart
-          chartType={'ColumnChart'}
-          data={data}
-          options={
-            // Chart options
-            {
-              backgroundColor: '#f8f9fa',
-              colors: ['#10C971', '#FA2E69'],
-              bar: { groupWidth: '10%' },
-              legend: { position: 'top', textStyle: { color: '#757F8C' } },
-              vAxis: { gridlines: { color: '#E8E9EC', count: 3 }, minorGridlines: null }
-            }
-          }
-          width={'730px'}
-          height={'200px'}
-          legendToggle
-          chartEvents={chartEvents}
-        />
+      <div className={styles.columnChartContainer}>
+        <Chart data={data} width={730} height={300}>
+          <ArgumentAxis />
+          <ValueAxis indentFromAxis={20} />
+
+          <BarSeries
+            name="Receive"
+            valueField="receive"
+            argumentField="created_at"
+            color="#10C971"
+          />
+          <BarSeries name="Spent" valueField="spent" argumentField="created_at" color="#FA2E69" />
+          <Legend position="top" />
+          <Stack />
+          <EventTracker onClick={this.handleClick} />
+          <Animation />
+        </Chart>
       </div>
     );
   }

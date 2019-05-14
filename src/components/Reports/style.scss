@@ -18,6 +18,8 @@ h1.title {
   flex-flow: column;
 
   .badge {
+    margin-top: 42px;
+
     width: 125px;
     height: 28px;
     //margin-left: 26px;
@@ -42,14 +44,6 @@ h1.title {
 
     &:before {
       content: '';
-      //width: 0;
-      //height: 0;
-      //position: absolute;
-      //right: 100%;
-      //top: calc(50% - 12px);
-      //border-top: 12px solid transparent;
-      //border-right: 24px solid #B5DDD4;
-      //border-bottom: 12px solid transparent;
 
       width: 10px;
       height: 8px;
