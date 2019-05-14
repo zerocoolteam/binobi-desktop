@@ -1,9 +1,7 @@
 import * as React from 'react';
 import Form from '../../Form';
 import * as styles from '../style.css';
-import { Input, SubmitButton } from '../../Form/Field';
-import classNames from 'classnames';
-import * as formStyles from '../../Form/style.css';
+import Input from '../../Form/Field/Input';
 
 export default class EmailForm extends Form {
   protected async submitForm(): Promise<boolean> {
@@ -15,9 +13,9 @@ export default class EmailForm extends Form {
       <div>
         <span className={styles.smallBlockTitle}>Change email</span>
 
-        <Input id="email" placeholder="Email" />
-        <Input id="newEmail" placeholder="New email" />
-        <Input id="emailConfirmation" placeholder="Confirm new email" />
+        <Input id={'email'} label={'Email'} />
+        <Input id="newEmail" label="New email" />
+        <Input id="emailConfirmation" label="Confirm new email" />
       </div>
     );
   }

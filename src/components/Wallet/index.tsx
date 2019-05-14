@@ -36,7 +36,8 @@ class Wallet extends React.Component<{}, { currentCard: CardItem }> {
           needNewCard={true}
           onChangeCard={(currentCard: CardItem) => this.holdCurrentCard(currentCard)}
         />
-        <CardInformation card={this.state.currentCard} />
+        {/*<CardInformation card={this.state.currentCard} />*/}
+        <CardInformation card={undefined} />
       </div>
     );
   }

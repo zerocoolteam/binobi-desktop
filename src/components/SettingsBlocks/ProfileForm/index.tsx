@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Form from '../../Form';
 import * as styles from '../style.css';
-import { Input } from '../../Form/Field';
+import Input from '../../Form/Field/Input';
 
 export default class ProfileForm extends Form {
   protected async submitForm(): Promise<boolean> {

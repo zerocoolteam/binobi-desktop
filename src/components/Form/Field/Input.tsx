@@ -1,33 +1,75 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import { IFieldProps } from './BaseField';
+import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 
-import * as styles from '../style.css';
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      display: 'flex',
+      flexWrap: 'wrap'
+    },
+    margin: {
+      marginTop: 20
+    },
+    cssLabel: {
+      '&$cssFocused': {
+        color: '#613EEA'
+      }
+    },
+    cssFocused: {},
+    cssUnderline: {
+      '&:after': {
+        borderBottomColor: '#613EEA'
+      }
+    },
+    cssOutlinedInput: {
+      '&$cssFocused $notchedOutline': {
+        borderColor: '#613EEA'
+      }
+    },
+    notchedOutline: {}
+  });
 
-import { IErrors } from '..';
+interface IIProps extends WithStyles<typeof styles> {
+  id: string;
+  name?: string;
+  label?: string;
+  options?: string[];
+  value?: any;
+  placeholder?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
-export const Input: React.SFC<IFieldProps> = ({
-  id,
-  label,
-  value,
-  placeholder,
-  onChange,
-  onBlur,
-  fieldStyle
-}) => {
+const Input = ({ classes, label, id, placeholder, onChange }: IIProps) => {
+  // const { classes, label, id, placeholder, onChange } = props;
+
   return (
-    <div className={classNames(fieldStyle, styles.input)}>
-      <input
+    <div className={classes.root}>
+      <TextField
         id={id}
-        type="text"
-        value={value}
-        placeholder={placeholder}
+        className={classes.margin}
+        label={label || placeholder}
+        placeholder={placeholder || label}
+        fullWidth
+        // margin="normal"
+        variant="outlined"
+        InputLabelProps={{
+          classes: {
+            root: classes.cssLabel,
+            focused: classes.cssFocused
+          }
+        }}
+        InputProps={{
+          classes: {
+            root: classes.cssOutlinedInput,
+            focused: classes.cssFocused,
+            notchedOutline: classes.notchedOutline
+          }
+        }}
         onChange={onChange}
-        onBlur={onBlur}
-        // className="form-control"
       />
-      {(label || placeholder) && <label htmlFor={id}>{label || placeholder}</label>}
-      {/* TODO - display validation error */}
     </div>
   );
 };
+
+export default withStyles(styles)(Input);

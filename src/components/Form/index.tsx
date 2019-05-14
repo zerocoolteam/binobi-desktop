@@ -4,7 +4,7 @@ import * as styles from './style.css';
 import classNames from 'classnames';
 import { Handler } from '../../helpers/Icon/IconHandler';
 
-export { Input, SearchInput, SubmitButton, SubmitSearchButton, BlockRadio } from './Field';
+export { SearchInput, SubmitButton, SubmitSearchButton, BlockRadio } from './Field';
 
 interface IFormProps {
   formStyles?: string;

@@ -1,9 +1,10 @@
 import * as React from 'react';
 import Form from '../../Form';
 import * as styles from '../style.css';
-import { Input, SubmitButton } from '../../Form/Field';
+import { SubmitButton } from '../../Form/Field';
 import classNames from 'classnames';
 import * as formStyles from '../../Form/style.css';
+import Input from '../../Form/Field/Input';
 
 export default class PasswordForm extends Form {
   private readonly chartTypes: string[][] = [

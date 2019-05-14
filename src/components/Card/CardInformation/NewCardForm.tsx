@@ -1,8 +1,9 @@
 import * as React from 'react';
 import Form from '../../Form';
-import { Input, SubmitButton } from '../../Form/Field';
+import { SubmitButton } from '../../Form/Field';
 import * as formStyles from '../../Form/style.css';
 import { ChangeEvent } from 'react';
+import Input from '../../Form/Field/Input';
 
 const creditCardType = require('credit-card-type');
 const getTypeInfo = require('credit-card-type').getTypeInfo;
