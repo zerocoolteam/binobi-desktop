@@ -1,8 +1,16 @@
 import * as React from 'react';
 import { Chart } from 'react-google-charts';
+import {
+  GoogleChartControl,
+  GoogleChartWrapper,
+  GoogleViz,
+  ReactGoogleChartEvent,
+  ReactGoogleChartProps
+} from 'react-google-charts/dist/types';
 
-export default class Donut extends React.Component {
-  public chart: any;
+import * as styles from './style.css';
+
+export default class Donut extends React.Component<{}, { activeColumn: number }> {
   public chartRef: any;
 
   constructor(props: any) {
@@ -12,6 +20,7 @@ export default class Donut extends React.Component {
   }
 
   render() {
+    // const handleSelect = this.handleSelect
     const data = [['Type', 'Amount'], ['Spent', 1000], ['Receive', 4000]];
     const options = {
       backgroundColor: '#f8f9fa',
@@ -28,9 +37,19 @@ export default class Donut extends React.Component {
       legend: 'none'
     };
 
+    // const chartEvents = [
+    //   {
+    //     eventName: 'select',
+    //     callback({ chartWrapper }) {
+    //       this.props.handleSelect(chartWrapper.getChart().getSelection()[0].row);
+    //     }
+    //   } as ReactGoogleChartEvent
+    // ];
+
     return (
-      <div ref={this.chartRef} className="chart-holder-2">
+      <div ref={this.chartRef}>
         <Chart chartType="PieChart" width="100%" height="400px" data={data} options={options} />
+        {/*chartEvents={chartEvents} />*/}
       </div>
     );
   }

@@ -7,11 +7,16 @@ import Donut from '../Charts/Donut';
 import * as styles from './style.css';
 
 class Reports extends React.Component {
+  renderBadge = () => {
+    return <p className={styles.badge}>Sent</p>;
+  }
+
   middleElement() {
     return (
-      <div>
+      <div className={styles.chartsContainer}>
         <Column />
         <Donut />
+        {this.renderBadge()}
       </div>
     );
   }

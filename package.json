@@ -90,6 +90,7 @@
     "@types/react-router-dom": "^4.3.1",
     "@types/react-slick": "^0.23.3",
     "@types/react-test-renderer": "^16.0.0",
+    "@types/react-text-mask": "^5.4.4",
     "@types/webdriverio": "^4.8.7",
     "@types/webpack-env": "^1.13.3",
     "awesome-typescript-loader": "^5.2.1",
@@ -144,6 +145,7 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^5.0.0",
     "react-slick": "^0.23.2",
+    "react-text-mask": "^5.4.3",
     "redux": "^4.0.0"
   }
 }

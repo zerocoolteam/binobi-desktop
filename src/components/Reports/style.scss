@@ -16,4 +16,49 @@ h1.title {
   align-items: center;
   justify-content: center;
   flex-flow: column;
+
+  .badge {
+    width: 125px;
+    height: 28px;
+    //margin-left: 26px;
+    background: #fa2e69;
+    position: relative;
+    border-radius: 6px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Sarabun;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    /* identical to box height, or 150% */
+
+    text-align: center;
+    letter-spacing: 0.2px;
+
+    color: #ffffff;
+
+    &:before {
+      content: '';
+      //width: 0;
+      //height: 0;
+      //position: absolute;
+      //right: 100%;
+      //top: calc(50% - 12px);
+      //border-top: 12px solid transparent;
+      //border-right: 24px solid #B5DDD4;
+      //border-bottom: 12px solid transparent;
+
+      width: 10px;
+      height: 8px;
+      position: absolute;
+      left: 45%;
+      top: -34%;
+      border-bottom: 10px solid #fa2e69;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+    }
+  }
 }
