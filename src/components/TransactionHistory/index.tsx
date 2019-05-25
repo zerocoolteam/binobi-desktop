@@ -7,7 +7,6 @@ import moment = require('moment');
 type TransactionHistoryType = {
   type: string;
   forCardId?: number;
-  position?: string;
 };
 
 interface IProps extends TransactionHistoryType {}
@@ -33,6 +32,26 @@ const receiveTransaction: TransactionList = [
     amount: 134.0,
     currency: '$',
     created_at: 1556618411973,
+    direction: 'in',
+    card_id: 2
+  },
+  {
+    id: 8,
+    photo_url: '',
+    full_name: 'John Doe',
+    amount: 134.0,
+    currency: '$',
+    created_at: 1556622411973,
+    direction: 'in',
+    card_id: 2
+  },
+  {
+    id: 9,
+    photo_url: '',
+    full_name: 'John Doe',
+    amount: 132.0,
+    currency: '$',
+    created_at: 1556622411973,
     direction: 'in',
     card_id: 2
   },
