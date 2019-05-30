@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import TextMask from '../Mask/TextMask';
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -37,21 +39,32 @@ interface IIProps extends WithStyles<typeof styles> {
   options?: string[];
   value?: any;
   placeholder?: string;
+  startAdornment?: string;
+  maskValue?: string;
+  mask?: any;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Input = ({ classes, label, id, placeholder, onChange }: IIProps) => {
-  // const { classes, label, id, placeholder, onChange } = props;
-
+const Input = ({
+  classes,
+  label,
+  value,
+  maskValue,
+  mask,
+  id,
+  placeholder,
+  startAdornment,
+  onChange
+}: IIProps) => {
   return (
     <div className={classes.root}>
       <TextField
+        value={maskValue || value}
         id={id}
         className={classes.margin}
         label={label || placeholder}
         placeholder={placeholder || label}
         fullWidth
-        // margin="normal"
         variant="outlined"
         InputLabelProps={{
           classes: {
@@ -64,7 +77,11 @@ const Input = ({ classes, label, id, placeholder, onChange }: IIProps) => {
             root: classes.cssOutlinedInput,
             focused: classes.cssFocused,
             notchedOutline: classes.notchedOutline
-          }
+          },
+          startAdornment: startAdornment && (
+            <InputAdornment position="start">{startAdornment}</InputAdornment>
+          ),
+          inputComponent: mask
         }}
         onChange={onChange}
       />

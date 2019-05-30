@@ -1,12 +1,12 @@
 import * as React from 'react';
-import CardSlider from '../CardSlider';
-import Balance from '../Balance';
-// import Tabs from '../Tabs';
-import TransactionHistory from '../TransactionHistory';
+import CardSliderContainer from '../../containers/CardSliderContainer';
+import BalanceContainer from '../../containers/BalanceContainer';
+import TransactionHistoryContainer from '../../containers/TransactionHistoryContainer';
 import { CardItem } from '../Card';
 import SearchForm from '../Common/SearchForm';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+
 import { withStyles, Theme, WithStyles, createStyles } from '@material-ui/core/styles';
 
 const styles = (theme: Theme) =>
@@ -45,7 +45,7 @@ const styles = (theme: Theme) =>
         color: '#3B414B'
       },
       '&:focus': {
-        color: '#3B414B'
+        outline: 'none'
       },
       '&:first-child': {
         marginRight: 175
@@ -60,35 +60,22 @@ const styles = (theme: Theme) =>
     }
   });
 
-interface IHomeProps extends WithStyles<typeof styles> {}
-interface IHomeState {
-  currentCard: CardItem;
+interface HomeProps extends WithStyles<typeof styles> {
+  changeTab(i: number): void;
+  changeCurrentCard(currentCard: CardItem): void;
+}
+
+interface LocalHomeState {
   currentTabId: number;
 }
 
-class Home extends React.Component<IHomeProps, IHomeState> {
-  constructor(props: IHomeProps) {
+class Home extends React.Component<HomeProps, LocalHomeState> {
+  constructor(props: HomeProps) {
     super(props);
 
     this.state = {
-      currentTabId: 0,
-      currentCard: {
-        number: 1000,
-        id: 1,
-        classes: '',
-        active: true,
-        balance: 927.1,
-        income_total: 22.4,
-        spent_total: 1234.5,
-        holder_name: 'Lindsey Johnson',
-        expired_at: '08/21',
-        cvv: 123
-      } as CardItem
+      currentTabId: 0
     };
-  }
-
-  holdCurrentCard = (currentCard: CardItem) => {
-    this.setState({ ...this.state, currentCard: currentCard });
   }
 
   handleChange = (event: any, currentTabId: any) => {
@@ -96,17 +83,14 @@ class Home extends React.Component<IHomeProps, IHomeState> {
   }
 
   render() {
-    const { currentCard, currentTabId } = this.state;
     const { classes } = this.props;
+    const { currentTabId } = this.state;
     const tabClasses = { root: classes.tabRoot, selected: classes.tabSelected };
-    // TODO: fix not change children components after change current state
+
     return (
       <div>
-        <Balance total={currentCard.balance} title="Your balance" />
-        <CardSlider
-          infinite={true}
-          onChangeCard={(current: CardItem) => this.holdCurrentCard(current)}
-        />
+        <BalanceContainer title="Your balance" />
+        <CardSliderContainer infinite={true} />
         <div className={classes.root}>
           <Tabs
             value={currentTabId}
@@ -122,8 +106,8 @@ class Home extends React.Component<IHomeProps, IHomeState> {
             <SearchForm submitButtonText={'Search transaction'} />
           </div>
 
-          {currentTabId === 0 && <TransactionHistory type="send" forCardId={currentCard.id} />}
-          {currentTabId === 1 && <TransactionHistory type="receive" forCardId={currentCard.id} />}
+          {currentTabId === 0 && <TransactionHistoryContainer type="send" />}
+          {currentTabId === 1 && <TransactionHistoryContainer type="receive" />}
         </div>
       </div>
     );

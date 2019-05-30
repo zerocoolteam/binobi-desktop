@@ -8,12 +8,12 @@ import PasswordForm from './PasswordForm';
 import NotificationsForm from './NotificationsForm';
 import CurrencyForm from './CurrencyForm';
 import SearchForm from '../Common/SearchForm';
+import AccountForm from '../Common/AccountForm';
+import LanguageForm from './LanguageForm';
 import { Handler } from '../../helpers/Icon/IconHandler';
 
 import { LeftArrow } from '../../assets/img';
 import * as styles from './style.css';
-import LanguageForm from './LanguageForm';
-import AccountForm from './AccountForm';
 
 interface ISettingsBlock {
   title: string;

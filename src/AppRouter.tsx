@@ -5,6 +5,7 @@ import Wallet from './components/Wallet';
 import Reports from './components/Reports';
 import Settings from './components/Settings';
 import SettingBlock from './components/SettingsBlocks';
+import SendMoney from './components/SendMoney';
 import IconClockHandler from './helpers/Icon/IconClockHandler';
 import IconCurrencyHandler from './helpers/Icon/IconCurrencyHandler';
 import IconLanguageHandler from './helpers/Icon/IconLanguageHandler';
@@ -31,6 +32,7 @@ class AppRouter extends React.Component {
         <Route path="/wallets" component={Wallet} />
         <Route path="/reports" component={Reports} />
         <Route path="/settings" component={Settings} />
+        <Route path="/send" component={SendMoney} />
         <Route
           path="/profile"
           component={() => <SettingBlock title={'Profile'} block={'profile'} />}

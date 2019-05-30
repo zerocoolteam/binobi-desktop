@@ -1,19 +1,17 @@
 import * as React from 'react';
-import TransactionHistoryContainer from '../../containers/TransactionHistoryContainer';
-import Column from '../Charts/Column';
-import Donut from '../Charts/Donut';
-
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import { withStyles, Theme, WithStyles, createStyles } from '@material-ui/core/styles';
-import * as reportStyles from './style.css';
+import * as sendMoneyStyles from './style.css';
+import TransactionForm from './TransactionForm';
 
 const styles = (theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
       backgroundColor: '#f8f9fa',
-      marginTop: '32px'
+      marginTop: '32px',
+      width: '100%'
     },
     tabsRoot: {
       borderBottom: '1px solid #E8E9EC'
@@ -59,32 +57,18 @@ const styles = (theme: Theme) =>
     }
   });
 
-interface IReportProps extends WithStyles<typeof styles> {}
-interface IReportState {
+interface ISendMoneyProps extends WithStyles<typeof styles> {}
+interface ISendMoneyState {
   currentTabId: number;
 }
 
-class Reports extends React.Component<IReportProps, IReportState> {
-  constructor(props: IReportProps) {
+class SendMoney extends React.Component<ISendMoneyProps, ISendMoneyState> {
+  constructor(props: ISendMoneyProps) {
     super(props);
 
     this.state = {
       currentTabId: 0
     };
-  }
-
-  renderBadge = () => {
-    return <p className={reportStyles.badge}>Sent</p>;
-  }
-
-  middleElement() {
-    return (
-      <div className={reportStyles.chartsContainer}>
-        <Column />
-        <Donut />
-        {this.renderBadge()}
-      </div>
-    );
   }
 
   handleChange = (event: any, currentTabId: any) => {
@@ -97,8 +81,8 @@ class Reports extends React.Component<IReportProps, IReportState> {
     const tabClasses = { root: classes.tabRoot, selected: classes.tabSelected };
 
     return (
-      <div>
-        <h1 className={reportStyles.title}>Reports</h1>
+      <div className={sendMoneyStyles.blockContainer}>
+        <h1 className={sendMoneyStyles.blockTitle}>Send Money</h1>
         <div className={classes.root}>
           <Tabs
             value={currentTabId}
@@ -106,20 +90,20 @@ class Reports extends React.Component<IReportProps, IReportState> {
             centered
             classes={{ root: classes.tabsRoot, indicator: classes.tabsIndicator }}
           >
-            <Tab label="Week" classes={tabClasses} />
-            <Tab label="Month" classes={tabClasses} />
-            <Tab label="Year" classes={tabClasses} />
+            <Tab label="Card" classes={tabClasses} />
+            <Tab label="Bank" classes={tabClasses} />
           </Tabs>
-
-          <div className={classes.middleElementContainer}>{this.middleElement()}</div>
-
-          {currentTabId === 0 && <TransactionHistoryContainer type="week" />}
-          {currentTabId === 1 && <TransactionHistoryContainer type="month" />}
-          {currentTabId === 2 && <TransactionHistoryContainer type="year" />}
+          {/*<div className={classes.middleElementContainer}>{this.middleElement()}</div>*/}
+          {currentTabId === 0 && (
+            <div className={sendMoneyStyles.blockContainer}>
+              <TransactionForm submitButton submitButtonText={'Confirm'} />
+            </div>
+          )}
+          {currentTabId === 1}
         </div>
       </div>
     );
   }
 }
 
-export default withStyles(styles)(Reports);
+export default withStyles(styles)(SendMoney);

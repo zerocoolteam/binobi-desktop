@@ -3,129 +3,52 @@ import Card, { CardItem, CardList } from '../Card';
 import NewCard from '../Card/NewCard';
 
 import Carousel from 'nuka-carousel';
+import { CardSliderState } from '../../reducers/cardSliderReducer';
 
-interface IProps {
+interface CardSliderProps {
   infinite: boolean;
   needNewCard?: boolean;
 
-  onChangeCard(currentCard: CardItem): void;
+  changeCurrentCard(currentCard: CardItem | undefined): void;
 }
 
 interface TemplateState {
   activeIndex: number;
   activeCardId: number | string;
-  cards: CardList;
   infinite: boolean;
   needNewCard?: boolean;
-
-  onChangeCard(currentCard: CardItem | undefined): void;
 }
 
-const cardsList: CardList = [
-  {
-    number: 1000,
-    id: 1,
-    classes: '',
-    active: true,
-    balance: 927.1,
-    income_total: 22.4,
-    spent_total: 1234.5,
-    holder_name: 'Lindsey Johnson',
-    expired_at: '08/21',
-    cvv: 123
-  },
-  {
-    number: 2000,
-    id: 2,
-    classes: '',
-    active: false,
-    balance: 213.4,
-    income_total: 22.4,
-    spent_total: 1234.5,
-    holder_name: 'Lindsey Johnson',
-    expired_at: '08/21',
-    cvv: 123
-  },
-  {
-    number: 3000,
-    id: 3,
-    classes: '',
-    active: false,
-    balance: 0,
-    income_total: 22.4,
-    spent_total: 1234.5,
-    holder_name: 'Lindsey Johnson',
-    expired_at: '08/21',
-    cvv: 123
-  },
-  {
-    number: 4000,
-    id: 4,
-    classes: '',
-    active: false,
-    balance: 10003,
-    income_total: 22.4,
-    spent_total: 1234.5,
-    holder_name: 'Lindsey Johnson',
-    expired_at: '08/21',
-    cvv: 123
-  },
-  {
-    number: 5000,
-    id: 5,
-    classes: '',
-    active: false,
-    balance: 9207.1,
-    income_total: 22.4,
-    spent_total: 1234.5,
-    holder_name: 'Lindsey Johnson',
-    expired_at: '08/21',
-    cvv: 123
-  },
-  {
-    number: 6000,
-    id: 6,
-    classes: '',
-    active: false,
-    balance: 23.5,
-    income_total: 22.4,
-    spent_total: 1234.5,
-    holder_name: 'Lindsey Johnson',
-    expired_at: '08/21',
-    cvv: 123
-  }
-];
-
-class CardSlider extends React.Component<IProps, TemplateState> {
-  constructor(props: IProps) {
+class CardSlider extends React.Component<CardSliderProps & CardSliderState, TemplateState> {
+  constructor(props: CardSliderProps & CardSliderState) {
     super(props);
+
+    const { currentCard, changeCurrentCard } = this.props;
 
     this.state = {
       activeIndex: 0,
-      activeCardId: cardsList[0].id,
-      cards: cardsList,
-      onChangeCard: this.props.onChangeCard,
+      activeCardId: currentCard.id,
       infinite: this.props.infinite,
       needNewCard: this.props.needNewCard || false
     };
 
-    this.state.onChangeCard(cardsList[0]);
+    changeCurrentCard(currentCard);
   }
 
   private handleSelect(_current: number, next: number): void {
-    const { cards, onChangeCard } = this.state;
-    let card: CardItem = cards[next];
+    const { changeCurrentCard, cardList } = this.props;
+    let card: CardItem = cardList[next];
     let id;
 
     card ? (id = card.id) : (id = 'newCard');
 
-    onChangeCard(card);
+    changeCurrentCard(card);
 
     this.setState({ activeIndex: next, activeCardId: id });
   }
 
   private handleClick(index: number, card: CardItem) {
-    this.state.onChangeCard(card);
+    this.props.changeCurrentCard(card);
 
     this.setState({ activeIndex: index as number, activeCardId: card.id });
   }
@@ -139,10 +62,13 @@ class CardSlider extends React.Component<IProps, TemplateState> {
   }
 
   render() {
+    const { activeCardId, needNewCard, activeIndex } = this.state;
+    const { cardList } = this.props;
+
     return (
       <Carousel
-        slideIndex={this.state.activeIndex}
-        speed={2000}
+        slideIndex={activeIndex}
+        // speed={2000}
         transitionMode={'scroll'}
         slidesToShow={3}
         // cellSpacing={20}
@@ -151,25 +77,23 @@ class CardSlider extends React.Component<IProps, TemplateState> {
         swiping
         cellAlign={'center'}
         enableKeyboardControls={true}
-        autoplay
-        autoplayInterval={2000}
+        // autoplay
+        // autoplayInterval={2000}
         pauseOnHover
         withoutControls
         beforeSlide={(current: number, next: number) => {
           this.handleSelect(current, next);
         }}
       >
-        {this.state.cards.map((card: CardItem) => (
+        {cardList.map((card: CardItem) => (
           <Card
             key={card.id}
             {...card}
-            active={this.state.activeCardId === card.id}
+            active={activeCardId === card.id}
             // onClick={(e: any) => this.handleClick(index as number, card)}
           />
         ))}
-        {this.state.needNewCard && (
-          <NewCard key={'newCard'} active={this.state.activeCardId === 'newCard'} />
-        )}
+        {needNewCard && <NewCard key={'newCard'} active={activeCardId === 'newCard'} />}
       </Carousel>
     );
   }

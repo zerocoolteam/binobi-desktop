@@ -1,7 +1,7 @@
 import * as React from 'react';
-import Form, { SubmitButton } from '../../Form';
-import * as styles from '../style.css';
-import { Toggle } from '../../Form/Field/Toggle';
+import Form, { SubmitButton } from '../Form';
+import * as styles from './style.css';
+import { Toggle } from '../Form/Field/Toggle';
 
 export default class AccountForm extends Form {
   private readonly fields = [

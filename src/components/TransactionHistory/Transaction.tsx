@@ -20,6 +20,9 @@ export type TransactionList = {
   map(
     param: (transaction: TransactionItem, index?: number, array?: TransactionList) => any
   ): TransactionList;
+  filter(
+    param: (transaction: TransactionItem, index?: number, array?: TransactionList) => any
+  ): TransactionList;
 };
 
 interface IProps extends TransactionItem {}

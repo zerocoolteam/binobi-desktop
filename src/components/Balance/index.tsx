@@ -1,17 +1,18 @@
 import * as React from 'react';
 import * as styles from './style.css';
+import { CardItem } from '../Card';
 
 interface IBalance {
-  total: number;
+  currentCard: CardItem;
   title: string;
 }
 
-const Balance = ({ total, title }: IBalance) => {
+const Balance = ({ currentCard, title }: IBalance) => {
   return (
     <div className={styles.balance}>
       <span className={styles.title}>{title}</span>
       <br />
-      <span className={styles.total}>$ {total}</span>
+      <span className={styles.total}>{currentCard && `$ ${currentCard.balance}`}</span>
     </div>
   );
 };

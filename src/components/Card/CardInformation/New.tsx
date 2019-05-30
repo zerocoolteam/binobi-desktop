@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { ChangeEvent } from 'react';
 import NewCardForm from './NewCardForm';
 
 import * as styles from './style.css';

@@ -1,124 +1,27 @@
 import * as React from 'react';
 import Transaction, { TransactionItem, TransactionList } from './Transaction';
-import SearchForm from '../Common/SearchForm';
 import * as styles from './style.css';
 import moment = require('moment');
+import { CardItem } from '../Card';
+import { TransactionHistoryState } from '../../reducers/transactionReducer';
 
 type TransactionHistoryType = {
   type: string;
-  forCardId?: number;
 };
 
-interface IProps extends TransactionHistoryType {}
-interface IState extends IProps {
-  transactions: TransactionList;
+interface TransactionHistoryProps extends TransactionHistoryType {
+  currentCard: CardItem;
+  setTransactionFilter(filter: string): void;
 }
 
-const receiveTransaction: TransactionList = [
-  {
-    id: 1,
-    photo_url: '',
-    full_name: 'Franz Ferdinand',
-    amount: 12.0,
-    currency: '$',
-    created_at: 1556618411973,
-    direction: 'in',
-    card_id: 2
-  },
-  {
-    id: 2,
-    photo_url: '',
-    full_name: 'John Doe',
-    amount: 134.0,
-    currency: '$',
-    created_at: 1556618411973,
-    direction: 'in',
-    card_id: 2
-  },
-  {
-    id: 8,
-    photo_url: '',
-    full_name: 'John Doe',
-    amount: 134.0,
-    currency: '$',
-    created_at: 1556622411973,
-    direction: 'in',
-    card_id: 2
-  },
-  {
-    id: 9,
-    photo_url: '',
-    full_name: 'John Doe',
-    amount: 132.0,
-    currency: '$',
-    created_at: 1556622411973,
-    direction: 'in',
-    card_id: 2
-  },
-  {
-    id: 3,
-    photo_url: '',
-    full_name: 'Rebeca Moore',
-    amount: 10.0,
-    currency: '$',
-    created_at: 1556446116000,
-    direction: 'in',
-    card_id: 1
-  }
-];
-
-const sendTransaction: TransactionList = [
-  {
-    id: 4,
-    photo_url: '',
-    full_name: 'Rebeca Moore',
-    amount: 972.01,
-    currency: '$',
-    created_at: 1556618411973,
-    direction: 'out',
-    card_id: 3
-  },
-  {
-    id: 5,
-    photo_url: '',
-    full_name: 'Franz Ferdinand',
-    amount: 125.00234255,
-    currency: '$',
-    created_at: 1556446116000,
-    direction: 'out',
-    card_id: 2
-  },
-  {
-    id: 6,
-    photo_url: '',
-    full_name: 'John Doe',
-    amount: 247.0,
-    currency: '$',
-    created_at: 1556446116000,
-    direction: 'out',
-    card_id: 1
-  },
-  {
-    id: 7,
-    photo_url: '',
-    full_name: 'John Doe',
-    amount: 22.0,
-    currency: '$',
-    created_at: 1556446116000,
-    direction: 'out',
-    card_id: 1
-  }
-];
-
-class TransactionHistory extends React.Component<IProps, IState> {
-  constructor(props: any) {
+class TransactionHistory extends React.Component<
+  TransactionHistoryProps & TransactionHistoryState
+> {
+  constructor(props: TransactionHistoryProps & TransactionHistoryState) {
     super(props);
 
-    this.state = {
-      type: this.props.type,
-      forCardId: this.props.forCardId,
-      transactions: this.props.type === 'receive' ? receiveTransaction : sendTransaction
-    };
+    const { type, setTransactionFilter } = this.props;
+    setTransactionFilter(type);
   }
 
   // TODO: change transaction created at view
@@ -149,19 +52,15 @@ class TransactionHistory extends React.Component<IProps, IState> {
 
   render() {
     let lastCreatedAt: number;
+    const { transactions } = this.props;
 
     return (
       <div className={styles.transactionHistoryContainer}>
-        {this.state.transactions.map((transaction: TransactionItem) => {
-          // console.log(this.state.forCardId);
-          if (transaction.card_id === this.state.forCardId) {
-            let elements = this.renderTransaction(transaction, lastCreatedAt);
-            lastCreatedAt = transaction.created_at;
+        {transactions.map((transaction: TransactionItem) => {
+          let elements = this.renderTransaction(transaction, lastCreatedAt);
+          lastCreatedAt = transaction.created_at;
 
-            return elements;
-          } else {
-            return;
-          }
+          return elements;
         })}
       </div>
     );

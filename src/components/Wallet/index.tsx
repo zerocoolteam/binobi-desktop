@@ -1,43 +1,20 @@
 import * as React from 'react';
-import Balance from '../Balance';
-import CardSlider from '../CardSlider';
+import BalanceContainer from '../../containers/BalanceContainer';
+import CardSliderContainer from '../../containers/CardSliderContainer';
 import { CardItem } from '../Card';
-import CardInformation from '../Card/CardInformation';
+import CardInformationContainer from '../../containers/CardInformationContainer';
 
-class Wallet extends React.Component<{}, { currentCard: CardItem }> {
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      currentCard: {
-        number: 1000,
-        id: 1,
-        classes: '',
-        active: true,
-        balance: 927.1,
-        income_total: 22.4,
-        spent_total: 1234.5,
-        holder_name: 'Lindsey Johnson',
-        expired_at: '08/21',
-        cvv: 123
-      } as CardItem
-    };
-  }
+interface WalletProps {
+  changeCurrentCard(currentCard: CardItem | undefined): void;
+}
 
-  holdCurrentCard = (currentCard: CardItem) => {
-    this.setState({ currentCard: currentCard });
-  }
-  // TODO: fix not change children components after change current state
+class Wallet extends React.Component<WalletProps> {
   render() {
     return (
       <div>
-        <Balance total={1236.4} title="My wallet’s total balance" />
-        <CardSlider
-          infinite={false}
-          needNewCard={true}
-          onChangeCard={(currentCard: CardItem) => this.holdCurrentCard(currentCard)}
-        />
-        {/*<CardInformation card={this.state.currentCard} />*/}
-        <CardInformation card={undefined} />
+        <BalanceContainer title="My wallet’s total balance" />
+        <CardSliderContainer infinite={false} needNewCard={true} />
+        <CardInformationContainer />
       </div>
     );
   }

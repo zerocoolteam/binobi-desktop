@@ -4,7 +4,7 @@ import * as styles from './style.css';
 import classNames from 'classnames';
 import { Handler } from '../../helpers/Icon/IconHandler';
 
-export { SearchInput, SubmitButton, SubmitSearchButton, BlockRadio } from './Field';
+export { SubmitButton } from './Field';
 
 interface IFormProps {
   formStyles?: string;
@@ -104,21 +104,21 @@ class Form extends React.Component<IFormProps, IFormState> {
             />
           )}
 
-          {submitSuccess && (
-            <div className="alert alert-info" role="alert">
-              The form was successfully submitted!
-            </div>
-          )}
-          {submitSuccess === false && !this.haveErrors(errors) && (
-            <div className="alert alert-danger" role="alert">
-              Sorry, an unexpected error has occurred
-            </div>
-          )}
-          {submitSuccess === false && this.haveErrors(errors) && (
-            <div className="alert alert-danger" role="alert">
-              Sorry, the form is invalid. Please review, adjust and try again
-            </div>
-          )}
+          {/*{submitSuccess && (*/}
+          {/*<div className="alert alert-info" role="alert">*/}
+          {/*The form was successfully submitted!*/}
+          {/*</div>*/}
+          {/*)}*/}
+          {/*{submitSuccess === false && !this.haveErrors(errors) && (*/}
+          {/*<div className="alert alert-danger" role="alert">*/}
+          {/*Sorry, an unexpected error has occurred*/}
+          {/*</div>*/}
+          {/*)}*/}
+          {/*{submitSuccess === false && this.haveErrors(errors) && (*/}
+          {/*<div className="alert alert-danger" role="alert">*/}
+          {/*Sorry, the form is invalid. Please review, adjust and try again*/}
+          {/*</div>*/}
+          {/*)}*/}
         </form>
       </div>
     );
